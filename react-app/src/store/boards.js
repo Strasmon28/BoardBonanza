@@ -16,7 +16,7 @@ const readOneBoard = (oneBoard) => ({
 // Thunks ----------------------------------
 // Get all the boards
 export const getAllBoardsThunk = () => async (dispatch) => {
-    const response = await fetch('/boards', {
+    const response = await fetch('/api/boards', {
         method: 'GET'
     })
 
