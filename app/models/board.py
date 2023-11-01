@@ -11,7 +11,7 @@ class Board(db.Model):
 
     id = db.Column(db.Integer, primary_key=True) # Needs foreign key
     user_id = db.Column(db.Integer, nullable=False)
-    title = db.Column(db.String(100), nullable=False)
+    title = db.Column(db.String(200), nullable=False)
     theme = db.Column(db.String(30), nullable=False)
     created_at = db.Column(DateTime, default=func.now())
     updated_at = db.Column(DateTime, default=func.now(), onupdate=func.now())
