@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify
 from app.models import db, Board
+from app.forms import BoardForm
 # from flask_login import current_user
 
 # Initialize blueprint for __init__
@@ -17,4 +18,18 @@ def allBoards():
 @board_routes.route('/<int:id>')
 def oneBoard(id):
     board = Board.query.get(id)
+    return board.to_dict()
+
+# Create a new board
+@board_routes.route('/new')
+def newBoard():
+    form = BoardForm()
+
+    if form.validate_on_submit():
+        board = Board(
+
+        )
+        db.session.add(board)
+        db.session.commit()
+
     return board.to_dict()
