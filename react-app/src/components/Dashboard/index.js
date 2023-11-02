@@ -16,8 +16,9 @@ function Dashboard() {
     return (
         <>
             <h1>This is the user dashboard</h1>
+            <button>+ Create a Board</button>
             {boards.map((board) => (
-                <div className="board-list">
+                <div key={board.id}className="board-list">
                     <div>{board.id}</div>
                     <div>{board.title}</div>
                     <div>{board.theme}</div>

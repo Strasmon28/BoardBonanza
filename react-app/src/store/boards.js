@@ -30,7 +30,7 @@ export const getAllBoardsThunk = () => async (dispatch) => {
 
 // Get one board
 export const getOneBoardThunk = (boardId) => async (dispatch) => {
-    const response = await fetch(`/boards/${boardId}`, {
+    const response = await fetch(`/api/boards/${boardId}`, {
         method: 'GET'
     })
 
