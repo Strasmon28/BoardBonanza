@@ -9,14 +9,16 @@ function CreateBoardModal() {
   // const [user_id, setUser_id] = useState(0)
   const [title, setTitle] = useState("");
   const [theme, setTheme] = useState("");
+  const {closeModal} = useModal();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const boardData = {
       title,
-      theme,
+      theme
     };
     dispatch(createBoardThunk(boardData));
+    closeModal();
   };
 
   return (
@@ -35,6 +37,7 @@ function CreateBoardModal() {
           value={title}
           onchange={(e) => setTitle(e.target.value)}
         />
+        <button type="submit">Create Board</button>
       </form>
     </>
   );
