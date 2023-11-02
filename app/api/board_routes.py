@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from app.models import db, Board
 from app.forms import BoardForm
 # from flask_login import current_user
@@ -24,12 +24,15 @@ def oneBoard(id):
 @board_routes.route('/new')
 def newBoard():
     form = BoardForm()
-
+    form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         board = Board(
-
+            user_id=form.data['user_id'],
+            title=form.data['title'],
+            theme=form.data['theme']
         )
         db.session.add(board)
         db.session.commit()
-
-    return board.to_dict()
+        return board.to_dict()
+    else:
+        return {'errors': form.errors}

@@ -30,12 +30,6 @@ function App() {
           <Route exact path="/boards/:id">
             <BoardDetail />
           </Route>
-          <Route path="/login" >
-            <LoginFormPage />
-          </Route>
-          <Route path="/signup">
-            <SignupFormPage />
-          </Route>
         </Switch>
       )}
     </>
@@ -43,3 +37,10 @@ function App() {
 }
 
 export default App;
+
+{/* <Route path="/login" >
+  <LoginFormPage />
+</Route>
+<Route path="/signup">
+  <SignupFormPage />
+</Route> */}

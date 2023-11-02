@@ -1,6 +1,7 @@
 // Action Constants ------------------------
 const READ_BOARDS = "boards/READ_BOARDS"
 const READ_ONE_BOARD = "boards/READ_ONE_BOARD"
+const ADD_BOARD = 'boards/ADD_BOARD'
 
 // Action Creators ------------------------
 const readBoards = (allBoards) => ({
@@ -11,6 +12,11 @@ const readBoards = (allBoards) => ({
 const readOneBoard = (oneBoard) => ({
     type: READ_ONE_BOARD,
     oneBoard
+})
+
+const addBoard = (boardData) => ({
+    type: ADD_BOARD,
+    boardData
 })
 
 // Thunks ----------------------------------
@@ -42,6 +48,24 @@ export const getOneBoardThunk = (boardId) => async (dispatch) => {
     }
 }
 
+// Create a new board
+export const createBoardThunk = (boardData) => async (dispatch) => {
+    const response = await fetch(`/api/boards/new`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(boardData)
+    })
+
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(addBoard(data))    // Sends back one board to action creator
+    } else {
+        return "Response Error"
+    }
+}
+
 // Reducer -------------------------------------
 const initialState = { boards: {}, singleBoard: {} }
 export default function boardsReducer (state = initialState, action) {
@@ -57,6 +81,8 @@ export default function boardsReducer (state = initialState, action) {
             newState = { ...state }
             newState.singleBoard = action.oneBoard;
             return newState;
+        case ADD_BOARD:
+
         default:
             return state
     }

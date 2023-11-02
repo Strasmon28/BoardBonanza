@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllBoardsThunk } from "../../store/boards";
+import OpenModalButton from "../OpenModalButton";
+import CreateBoardModal from "../CreateBoardModal";
 
 function Dashboard() {
     const dispatch = useDispatch();
@@ -16,7 +18,12 @@ function Dashboard() {
     return (
         <>
             <h1>This is the user dashboard</h1>
-            <button>+ Create a Board</button>
+            {/* <button>+ Create a Board</button> */}
+            <OpenModalButton
+              buttonText="Create a Board"
+              onItemClick={closeMenu}
+              modalComponent={<CreateBoardModal />}
+            />
             {boards.map((board) => (
                 <div key={board.id}className="board-list">
                     <div>{board.id}</div>
