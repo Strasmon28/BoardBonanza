@@ -21,6 +21,15 @@ function LoginFormModal() {
     }
   };
 
+  const handleDemoUser = async (e) => {
+    e.preventDefault();
+
+    return dispatch(login("demo@aa.io", "password")).then(() => {
+      closeModal();
+      // history.push("/");
+    });
+  };
+
   return (
     <>
       <h1>Log In</h1>
@@ -49,6 +58,7 @@ function LoginFormModal() {
           />
         </label>
         <button type="submit">Log In</button>
+        <button onClick={handleDemoUser}>Demo User</button>
       </form>
     </>
   );
