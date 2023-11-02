@@ -37,6 +37,8 @@ def upgrade():
         batch_op.add_column(sa.Column('created_at', sa.DateTime(), nullable=True))
         batch_op.add_column(sa.Column('updated_at', sa.DateTime(), nullable=True))
 
+    if environment == "production":
+        op.execute(f"ALTER TABLE boards SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 
 
