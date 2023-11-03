@@ -1,6 +1,9 @@
 // Action Constants ------------------------
 const READ_BOARDS = "boards/READ_BOARDS"
 const READ_ONE_BOARD = "boards/READ_ONE_BOARD"
+const ADD_BOARD = 'boards/ADD_BOARD'
+const UPDATE_BOARD = 'boards/UPDATE_BOARD'
+const DELETE_BOARD = 'boards/DELETE_BOARD'
 
 // Action Creators ------------------------
 const readBoards = (allBoards) => ({
@@ -13,10 +16,26 @@ const readOneBoard = (oneBoard) => ({
     oneBoard
 })
 
+const addBoard = (boardData) => ({
+    type: ADD_BOARD,
+    boardData
+})
+
+const updateBoard = (boardData, boardId) => ({
+    type: UPDATE_BOARD,
+    boardData,
+    boardId
+})
+
+const deleteBoard = (boardId) => ({
+    type: DELETE_BOARD,
+    boardId
+})
+
 // Thunks ----------------------------------
 // Get all the boards
 export const getAllBoardsThunk = () => async (dispatch) => {
-    const response = await fetch('/api/boards', {
+    const response = await fetch('/api/boards/all', {
         method: 'GET'
     })
 
@@ -42,6 +61,57 @@ export const getOneBoardThunk = (boardId) => async (dispatch) => {
     }
 }
 
+// Create a new board
+export const createBoardThunk = (boardData) => async (dispatch) => {
+    const response = await fetch(`/api/boards/new`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(boardData)
+    })
+
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(addBoard(data))    // Sends back one board to action creator
+    } else {
+        return "Response Error"
+    }
+}
+
+// Update an existing board
+export const updateBoardThunk = (boardData, boardId) => async (dispatch) => {
+    const response = await fetch(`/api/boards/update/${boardId}`, {
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(boardData)
+    })
+
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(updateBoard(data, boardId))    // Sends back one board to action creator
+    } else {
+        return "Response Error"
+    }
+}
+
+// Delete a board
+export const deleteBoardThunk = (boardId) => async (dispatch) => {
+    const response = await fetch(`/api/boards/delete/${boardId}`, {
+        method: 'DELETE'
+    })
+
+    if (response.ok) {
+        dispatch(deleteBoard(boardId))    // Sends back one board to action creator
+        return "Deleted"
+    } else {
+        return "Response Error"
+    }
+}
+
+
 // Reducer -------------------------------------
 const initialState = { boards: {}, singleBoard: {} }
 export default function boardsReducer (state = initialState, action) {
@@ -56,6 +126,18 @@ export default function boardsReducer (state = initialState, action) {
         case READ_ONE_BOARD:
             newState = { ...state }
             newState.singleBoard = action.oneBoard;
+            return newState;
+        case ADD_BOARD: // Creation adds to single since redirection
+            newState = { ...state, singleBoard: {} }
+            newState.singleBoard = action.boardData
+            return newState;
+        case UPDATE_BOARD:
+            newState = { ...state }
+            newState.boards[action.boardId] = action.boardData;
+            return newState;
+        case DELETE_BOARD:
+            newState = { ...state }
+            delete newState.boards[action.boardId];
             return newState;
         default:
             return state
