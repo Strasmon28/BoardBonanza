@@ -22,7 +22,7 @@ const addBoard = (boardData) => ({
 // Thunks ----------------------------------
 // Get all the boards
 export const getAllBoardsThunk = () => async (dispatch) => {
-    const response = await fetch('/api/boards', {
+    const response = await fetch('/api/boards/', { // Is this trailing slash needed?
         method: 'GET'
     })
 
@@ -81,8 +81,10 @@ export default function boardsReducer (state = initialState, action) {
             newState = { ...state }
             newState.singleBoard = action.oneBoard;
             return newState;
-        case ADD_BOARD:
-
+        case ADD_BOARD: // Creation adds to single since redirection
+            newState = { ...state, singleBoard: {} }
+            newState.singleBoard = action.boardData
+            return newState
         default:
             return state
     }

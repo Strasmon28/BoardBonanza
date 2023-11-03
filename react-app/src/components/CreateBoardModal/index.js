@@ -28,14 +28,14 @@ function CreateBoardModal() {
         <input
           type="text"
           value={theme}
-          onchange={(e) => setTheme(e.target.value)}
+          onChange={(e) => setTheme(e.target.value)}
         />
 
         <p>Title</p>
         <input
           type="text"
           value={title}
-          onchange={(e) => setTitle(e.target.value)}
+          onChange={(e) => setTitle(e.target.value)}
         />
         <button type="submit">Create Board</button>
       </form>
