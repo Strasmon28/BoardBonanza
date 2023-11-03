@@ -24,11 +24,11 @@ def oneBoard(id):
 @board_routes.route('/new', methods=['POST'])
 def newBoard():
     form = BoardForm()
-    print("****** currentuser", current_user)
+    # print("****** currentuser", current_user)
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         board = Board(
-            user_id=form.data['user_id'],
+            user_id=current_user.id,
             title=form.data['title'],
             theme=form.data['theme']
         )
