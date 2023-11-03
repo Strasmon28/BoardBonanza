@@ -105,6 +105,7 @@ export const deleteBoardThunk = (boardId) => async (dispatch) => {
 
     if (response.ok) {
         dispatch(deleteBoard(boardId))    // Sends back one board to action creator
+        return "Deleted"
     } else {
         return "Response Error"
     }

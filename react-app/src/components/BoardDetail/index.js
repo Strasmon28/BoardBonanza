@@ -5,6 +5,7 @@ import { getOneBoardThunk } from "../../store/boards";
 import { useParams } from "react-router-dom";
 import UpdateBoardModal from "../UpdateBoardModal";
 import OpenModalButton from "../OpenModalButton";
+import DeleteBoardModal from "../DeleteBoardModal";
 
 function BoardDetail() {
     const dispatch = useDispatch();
@@ -28,6 +29,12 @@ function BoardDetail() {
               buttonText="Update this Board"
             //   onItemClick={closeMenu}
               modalComponent={<UpdateBoardModal board={board} />}
+            />
+
+            <OpenModalButton
+              buttonText="Delete this Board"
+            //   onItemClick={closeMenu}
+              modalComponent={<DeleteBoardModal boardId={board.id} />}
             />
 
             <div>{board.id}</div>
