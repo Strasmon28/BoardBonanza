@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 function Homepage () {
-    const sessionUser = useSelector((state) => state.session.user)
+    const currentUser = useSelector((state) => state.session.user)
     return(
         <>
             <h1>Welcome to BoardBonanza</h1>
-            {sessionUser ? (<NavLink to='/boards'>My Dashboard</NavLink>) : null}
+            {currentUser && (<NavLink to='/boards'>My Dashboard</NavLink>)}
         </>
     )
 }

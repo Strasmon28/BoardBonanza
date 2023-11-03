@@ -1,29 +1,27 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
-import { createBoardThunk } from "../../store/boards";
+import { updateBoardThunk } from "../../store/boards";
 
-function CreateBoardModal() {
+function UpdateBoardModal({ board }) {
   const dispatch = useDispatch();
-
-  // const [user_id, setUser_id] = useState(0)
-  const [title, setTitle] = useState("");
-  const [theme, setTheme] = useState("");
+  const [title, setTitle] = useState(board?.title);
+  const [theme, setTheme] = useState(board?.theme);
   const { closeModal } = useModal();
 
-  const handleSubmit = async (e) => {
+  const handleUpdate = async (e) => {
     e.preventDefault();
     const boardData = {
-      title,
-      theme
+        title,
+        theme
     };
-    dispatch(createBoardThunk(boardData));
-    closeModal();
+    dispatch(updateBoardThunk(boardData, board.id));
+    closeModal()
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleUpdate}>
         <p>Theme</p>
         <input
           type="text"
@@ -37,10 +35,10 @@ function CreateBoardModal() {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <button type="submit">Create Board</button>
+        <button type="submit">Update Board</button>
       </form>
     </>
   );
 }
 
-export default CreateBoardModal;
+export default UpdateBoardModal;
