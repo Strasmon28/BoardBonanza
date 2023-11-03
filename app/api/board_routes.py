@@ -9,7 +9,7 @@ board_routes = Blueprint("boards", __name__)
 # !!! This application does not show every single board in the database
 # !!! Only all the boards of a user
 # Read all boards of a user
-@board_routes.route('/')
+@board_routes.route('/all')
 def all_boards():
     boards = [board.to_dict() for board in Board.query.filter(Board.user_id == current_user.id)]
     return {'boards': boards}

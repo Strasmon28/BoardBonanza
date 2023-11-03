@@ -35,7 +35,7 @@ const deleteBoard = (boardId) => ({
 // Thunks ----------------------------------
 // Get all the boards
 export const getAllBoardsThunk = () => async (dispatch) => {
-    const response = await fetch('/api/boards/', { // Is this trailing slash needed?
+    const response = await fetch('/api/boards/all', {
         method: 'GET'
     })
 
@@ -132,7 +132,7 @@ export default function boardsReducer (state = initialState, action) {
             return newState;
         case UPDATE_BOARD:
             newState = { ...state }
-            newState.boards[action.boardId] = boardData;
+            newState.boards[action.boardId] = action.boardData;
             return newState;
         case DELETE_BOARD:
             newState = { ...state }
