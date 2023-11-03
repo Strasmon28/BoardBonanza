@@ -10,19 +10,19 @@ board_routes = Blueprint("boards", __name__)
 # !!! Only all the boards of a user
 # Read all boards of a user
 @board_routes.route('/')
-def allBoards():
+def all_boards():
     boards = [board.to_dict() for board in Board.query.filter(Board.user_id == current_user.id)]
     return {'boards': boards}
 
 # Get one board by id
 @board_routes.route('/<int:id>')
-def oneBoard(id):
+def one_board(id):
     board = Board.query.get(id)
     return board.to_dict()
 
 # Create a new board
 @board_routes.route('/new', methods=['POST'])
-def newBoard():
+def new_board():
     form = BoardForm()
     # print("****** currentuser", current_user)
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -37,3 +37,32 @@ def newBoard():
         return board.to_dict()
     else:
         return {'errors': form.errors}
+
+#Update a board
+@board_routes.route('/update/<int:id>', methods=['PUT'])
+def update_board(id):
+    form = BoardForm()
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        updated_board = Board.query.get(id)
+
+        updated_board.title=form.data['title']
+        updated_board.theme=form.data['theme']
+
+        db.session.commit()
+
+        return updated_board.to_dict()
+
+    else:
+        return {'errors': form.errors}
+
+@board_routes.route('/delete/<int:id>', methods=['DELETE'])
+def delete_board(id):
+    deleted_board = Board.query.get(id)
+    if deleted_board:
+        db.session.delete(deleted_board)
+        db.session.commit()
+        return "Board successfully deleted"
+    else:
+        return {"message": "Board not Found"}, 404
