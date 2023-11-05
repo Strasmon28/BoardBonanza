@@ -21,7 +21,7 @@ class User(db.Model, UserMixin):
     updated_at = db.Column(DateTime, default=func.now(), onupdate=func.now())
 
     # A user has many boards
-    boards = db.relationship("List", back_populates="owner")
+    boards = db.relationship("Board", back_populates="owner")
 
     @property
     def password(self):

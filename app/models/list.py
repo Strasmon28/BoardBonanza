@@ -10,7 +10,7 @@ class List(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    board_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('board.id')), nullable=False) # Relationship needed
+    board_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('boards.id')), nullable=False) # ForeignKey
     title = db.Column(db.String(50), nullable=False)
     cover = db.Column(db.String(30), nullable=False)
     created_at = db.Column(DateTime, default=func.now())
@@ -21,7 +21,7 @@ class List(db.Model):
     board = db.relationship("Board", back_populates="lists")
 
     # One list has many cards
-    cards = db.relationship("Card", back_populates="list", cascade="all, delete, delete-orphan")
+    # cards = db.relationship("Card", back_populates="list", cascade="all, delete, delete-orphan")
 
     def to_dict(self):
         return {
