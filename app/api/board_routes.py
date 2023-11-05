@@ -40,7 +40,7 @@ def new_board():
 
 #Update a board
 @board_routes.route('/update/<int:id>', methods=['PUT'])
-def update_board(id):
+def update_one_board(id):
     form = BoardForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
