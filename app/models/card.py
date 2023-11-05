@@ -10,7 +10,7 @@ class Card(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    list_id = db.Column(db.Integer, nullable=False) # Needs foreign key
+    list_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('board.id')), nullable=False) # Needs foreign key
     title = db.Column(db.String(50), nullable=False)
     description = db.Column(db.String(200), nullable=True)
     created_at = db.Column(DateTime, default=func.now())
@@ -18,6 +18,7 @@ class Card(db.Model):
 
     # Relationship
     # Many cards belong to one list
+    list = db.relationship("List", back_populates="cards")
 
     def to_dict(self):
         return {
