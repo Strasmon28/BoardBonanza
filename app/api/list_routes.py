@@ -9,7 +9,7 @@ list_routes = Blueprint('lists', __name__)
 @list_routes.route("/all")
 def all_lists():
     # Return all the lists that are included in the board
-    lists = [lists.to_dict() for list in List.query.filter(List.board_id)]
+    lists = [list.to_dict() for list in List.query.get()]
     return {"lists": lists}
 
 # Create a new list
