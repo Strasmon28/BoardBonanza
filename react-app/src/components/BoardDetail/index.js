@@ -67,6 +67,7 @@ function BoardDetail() {
               </div>
             ))}
           </div>
+          
             <OpenModalButton
               buttonText="+ Create List"
             //   onItemClick={closeMenu}
