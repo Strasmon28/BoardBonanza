@@ -74,6 +74,7 @@ export const createBoardThunk = (boardData) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json()
         dispatch(addBoard(data))    // Sends back one board to action creator
+        return data
     } else {
         return "Response Error"
     }

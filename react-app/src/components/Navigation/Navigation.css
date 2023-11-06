@@ -1,3 +1,9 @@
+.navbar {
+  display: flex;
+  padding-right: 50px;
+  justify-content: space-between;
+}
+
 .profile-dropdown {
   position: absolute;
 }

@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { createBoardThunk } from "../../store/boards";
+import { useHistory } from "react-router-dom";
 
 function CreateBoardModal() {
   const dispatch = useDispatch();
-
-  // const [user_id, setUser_id] = useState(0)
+  const history = useHistory();
   const [title, setTitle] = useState("");
   const [theme, setTheme] = useState("");
   const { closeModal } = useModal();
@@ -17,8 +17,11 @@ function CreateBoardModal() {
       title,
       theme
     };
-    dispatch(createBoardThunk(boardData));
+
+    const newBoard = await dispatch(createBoardThunk(boardData));
+
     closeModal();
+    history.push(`/boards/${newBoard.id}`)
   };
 
   return (
