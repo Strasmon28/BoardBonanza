@@ -34,8 +34,8 @@ const deleteList = (listId) => ({
 
 // Thunks ----------------------------------
 // Get all the lists
-export const getAllListsThunk = () => async (dispatch) => {
-    const response = await fetch('/api/lists/all', {
+export const getAllListsThunk = (boardId) => async (dispatch) => {
+    const response = await fetch(`/api/lists/all/${boardId}`, {
         method: 'GET'
     })
 
@@ -114,7 +114,7 @@ export const deleteListThunk = (listId) => async (dispatch) => {
 
 // Reducer -------------------------------------
 const initialState = { lists: {} }
-export default function listsReducer (state = initialState, action) {
+export default function listsReducer(state = initialState, action) {
     let newState;
     switch (action.type) {
         case READ_LISTS:

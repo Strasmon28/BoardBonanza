@@ -1,15 +1,15 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import db, List
+from app.models import db, List, Board
 from app.forms import ListForm
 
 list_routes = Blueprint('lists', __name__)
 
 # Read all the lists of a board
-@list_routes.route("/all")
-def all_lists():
+@list_routes.route("/all/<int:id>")
+def all_lists(id):
     # Return all the lists that are included in the board
-    lists = [list.to_dict() for list in List.query.get()]
+    lists = [list.to_dict() for list in List.query.filter(List.board_id == id)]
     return {"lists": lists}
 
 # Create a new list

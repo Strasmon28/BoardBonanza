@@ -6,16 +6,22 @@ import { useParams } from "react-router-dom";
 import UpdateBoardModal from "../UpdateBoardModal";
 import OpenModalButton from "../OpenModalButton";
 import DeleteBoardModal from "../DeleteBoardModal";
+import CreateListModal from "../CreateListModal";
+import { getAllListsThunk } from "../../store/lists";
+import "./BoardDetail.css"
 
 function BoardDetail() {
     const dispatch = useDispatch();
     const params = useParams()
     const boardId = parseInt(params.id) // Turns params string into number
     const board = useSelector((state) => state.boardsState.singleBoard)
+    let lists = useSelector((state) => Object.values(state.listsState.lists))
     console.log("****** the board", board)
+    console.log("****** the lists", lists)
 
     useEffect(() => {
         dispatch(getOneBoardThunk(boardId))
+        dispatch(getAllListsThunk(boardId))
     }, [dispatch])
 
     if (board === undefined || Object.keys(board).length === 0){ // Temp fix
@@ -40,7 +46,22 @@ function BoardDetail() {
             <div>{board.id}</div>
             <div>{board.title}</div>
             <div>{board.theme}</div>
-            <button>+ Create List</button>
+
+          <div className="all-lists-container">
+            {lists && lists.map((list) => (
+              <div key={list.id} className="single-list">
+                <div>{list.title}</div>
+                <button>+ Create a card</button>
+              </div>
+            ))}
+          </div>
+            <OpenModalButton
+              buttonText="+ Create List"
+            //   onItemClick={closeMenu}
+              modalComponent={<CreateListModal />}
+            />
+            {/* <button>+ Create List</button> */}
+
         </>
     )
 }
