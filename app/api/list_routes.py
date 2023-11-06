@@ -13,13 +13,14 @@ def all_lists(id):
     return {"lists": lists}
 
 # Create a new list
-@list_routes.route("/new", methods=['POST'])
-def new_list():
+@list_routes.route("/new/<int:boardId>", methods=['POST'])
+def new_list(boardId):
     form = ListForm()
 
+    form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         list = List(
-            board_id=form.data['board_id'],
+            board_id=boardId,
             title=form.data['title'],
             cover=form.data['cover']
         )
@@ -36,6 +37,7 @@ def new_list():
 def update_one_list(id):
     form = ListForm()
 
+    form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         updated_list = List.query.get(id)
 

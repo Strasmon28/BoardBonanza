@@ -62,8 +62,8 @@ export const getAllListsThunk = (boardId) => async (dispatch) => {
 // }
 
 // Create a new list
-export const createListThunk = (listData) => async (dispatch) => {
-    const response = await fetch(`/api/lists/new`, {
+export const createListThunk = (listData, boardId) => async (dispatch) => {
+    const response = await fetch(`/api/lists/new/${boardId}`, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
@@ -118,7 +118,7 @@ export default function listsReducer(state = initialState, action) {
     let newState;
     switch (action.type) {
         case READ_LISTS:
-            newState = { ...state, boards: {} }
+            newState = { ...state, lists: {} }
             action.allLists.lists.forEach(list => {
                 newState.lists[list.id] = list
             });

@@ -58,7 +58,7 @@ function BoardDetail() {
             <OpenModalButton
               buttonText="+ Create List"
             //   onItemClick={closeMenu}
-              modalComponent={<CreateListModal />}
+              modalComponent={<CreateListModal boardId={boardId} />}
             />
             {/* <button>+ Create List</button> */}
 

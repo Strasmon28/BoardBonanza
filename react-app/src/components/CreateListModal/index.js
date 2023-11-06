@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { createListThunk } from "../../store/lists";
 
-function CreateListModal() {
+function CreateListModal({ boardId }) {
   const dispatch = useDispatch();
 
   // const [user_id, setUser_id] = useState(0)
@@ -17,7 +17,7 @@ function CreateListModal() {
       title,
       cover
     };
-    dispatch(createListThunk(listData));
+    dispatch(createListThunk(listData, boardId));
     closeModal();
   };
 
