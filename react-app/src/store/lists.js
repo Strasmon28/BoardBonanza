@@ -1,9 +1,9 @@
 // Action Constants ------------------------
-const READ_LISTS = "boards/READ_LISTS"
-// const READ_ONE_LIST = "boards/READ_ONE_LIST"
-const ADD_LIST = 'boards/ADD_LIST'
-const UPDATE_LIST = 'boards/UPDATE_LIST'
-const DELETE_LIST = 'boards/DELETE_LIST'
+const READ_LISTS = "lists/READ_LISTS"
+// const READ_ONE_LIST = "lists/READ_ONE_LIST"
+const ADD_LIST = 'lists/ADD_LIST'
+const UPDATE_LIST = 'lists/UPDATE_LIST'
+const DELETE_LIST = 'lists/DELETE_LIST'
 
 // Action Creators ------------------------
 const readLists = (allLists) => ({
@@ -33,7 +33,8 @@ const deleteList = (listId) => ({
 })
 
 // Thunks ----------------------------------
-// Get all the lists
+// Get all the lists, it should retrieve all of them belonging to a specific board
+// Send the boardId to the backend
 export const getAllListsThunk = (boardId) => async (dispatch) => {
     const response = await fetch(`/api/lists/all/${boardId}`, {
         method: 'GET'
@@ -48,8 +49,8 @@ export const getAllListsThunk = (boardId) => async (dispatch) => {
 }
 
 // // Get one list
-// export const getOneBoardThunk = (boardId) => async (dispatch) => {
-//     const response = await fetch(`/api/lists/${boardId}`, {
+// export const getOneListThunk = (ListId) => async (dispatch) => {
+//     const response = await fetch(`/api/lists/${ListId}`, {
 //         method: 'GET'
 //     })
 
@@ -62,6 +63,7 @@ export const getAllListsThunk = (boardId) => async (dispatch) => {
 // }
 
 // Create a new list
+// Send boardId to add to new list board_id
 export const createListThunk = (listData, boardId) => async (dispatch) => {
     const response = await fetch(`/api/lists/new/${boardId}`, {
         method: 'POST',

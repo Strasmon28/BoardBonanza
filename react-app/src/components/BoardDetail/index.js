@@ -7,8 +7,10 @@ import UpdateBoardModal from "../UpdateBoardModal";
 import OpenModalButton from "../OpenModalButton";
 import DeleteBoardModal from "../DeleteBoardModal";
 import CreateListModal from "../CreateListModal";
+import UpdateListModal from "../UpdateListModal";
 import { getAllListsThunk } from "../../store/lists";
 import "./BoardDetail.css"
+import DeleteListModal from "../DeleteListModal";
 
 function BoardDetail() {
     const dispatch = useDispatch();
@@ -51,6 +53,16 @@ function BoardDetail() {
             {lists && lists.map((list) => (
               <div key={list.id} className="single-list">
                 <div>{list.title}</div>
+                <OpenModalButton
+                  buttonText="Update this list"
+                  //   onItemClick={closeMenu}
+                  modalComponent={<UpdateListModal list={list} boardId={board.id} />}
+                />
+                <OpenModalButton
+                  buttonText="Delete this list"
+                  //   onItemClick={closeMenu}
+                  modalComponent={<DeleteListModal listId={list.id}  />}
+                />
                 <button>+ Create a card</button>
               </div>
             ))}
