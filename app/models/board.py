@@ -9,8 +9,8 @@ class Board(db.Model):
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
 
-    id = db.Column(db.Integer, primary_key=True) # Needs foreign key
-    user_id = db.Column(db.Integer, nullable=False)
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     title = db.Column(db.String(200), nullable=False)
     theme = db.Column(db.String(30), nullable=False)
     created_at = db.Column(DateTime, default=func.now())
@@ -19,7 +19,9 @@ class Board(db.Model):
     # Relationships
 
     # Many boards belong to one User
+    owner = db.relationship("User", back_populates="boards")
     # One board can have many lists
+    lists = db.relationship("List", back_populates="board", cascade="all, delete, delete-orphan")
 
     def to_dict(self):
         return {

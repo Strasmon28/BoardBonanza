@@ -20,6 +20,9 @@ class User(db.Model, UserMixin):
     created_at = db.Column(DateTime, default=func.now())
     updated_at = db.Column(DateTime, default=func.now(), onupdate=func.now())
 
+    # A user has many boards
+    boards = db.relationship("Board", back_populates="owner")
+
     @property
     def password(self):
         return self.hashed_password
