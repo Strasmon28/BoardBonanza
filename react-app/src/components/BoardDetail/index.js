@@ -61,7 +61,7 @@ function BoardDetail() {
 
           <div className="all-lists-container">
             {lists && lists.map((list) => (
-              <div key={list.id} className="single-list">
+              <div key={list.id} className={'single-list' + ` ${list.cover}`}>
                 <div className="list-title-container">
                   <div className="list-title">{list.title}</div>
                   <div className="list-buttons">
