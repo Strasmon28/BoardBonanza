@@ -5,7 +5,9 @@
 }
 
 .create-board-button{
-    color: red;
+    color: black;
+    background-color: #d7d7d7;
+    border-radius: 20px;
     margin: 10px
 }
 .single-board {

@@ -1,7 +1,48 @@
-.all-lists-container{
-    border: solid red
+.board-title-container{
+    display: flex;
+    align-items: center;
+}
+
+.board-title {
+    font-family: Tahoma, sans-serif;
+    margin-left: 15px;
+}
+
+.board-details {
+    background-color: orange;
+}
+
+.all-lists-container {
+    /* border: solid red; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 15px;
+}
+
+.create-list-button {
+    color: red;
+    margin: 10px;
+}
+
+.list-title-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.list-title {
+    font-family: Tahoma, sans-serif;
+}
+
+.list-buttons button {
+
 }
 
 .single-list {
-    border: solid orange
+    border: solid white;
+    border-radius: 20px;
+    background: white;
+    margin: 10px;
+    padding: 15px;
+    box-shadow: 2px 2px 2px 2px #292929;
 }
