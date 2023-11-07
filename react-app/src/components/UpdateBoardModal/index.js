@@ -9,6 +9,7 @@ function UpdateBoardModal({ board }) {
   const [title, setTitle] = useState(board?.title);
   const [theme, setTheme] = useState(board?.theme);
   const [selection, setSelection] = useState(0);
+  // const [currentSelection, setCurrentSelection] = useState(0);
   const { closeModal } = useModal();
 
   const handleUpdate = async (e) => {
@@ -21,8 +22,9 @@ function UpdateBoardModal({ board }) {
     closeModal()
   };
 
-  const selectTheme = (chosenTheme) => {
+  const selectTheme = (chosenTheme, selectNum) => {
     setTheme(chosenTheme);
+    setSelection(selectNum)
   }
 
   console.log("Chosen theme", theme)
@@ -36,16 +38,15 @@ function UpdateBoardModal({ board }) {
           onChange={(e) => setTheme(e.target.value)}
         /> */}
         <div className="theme-select-container">
-          <div className={selection === 1 ? "orange-select chosen" : "orange-select"} onClick={() => selectTheme("orange")}
-          onMouseEnter={() => {setSelection(1)}}
-          onMouseLeave={() => {setSelection(0)}}
-          >
-
+          <div className={selection === 1 ? "orange-select chosen" : "orange-select"} onClick={() => selectTheme("orange", 1)}>
           </div>
 
-          <div className="storm-select" onClick={() => selectTheme("storm")}>
-
+          <div className={selection === 2 ? "storm-select chosen" : "storm-select"} onClick={() => selectTheme("storm", 2)}>
           </div>
+
+          <div className={selection === 3 ? "grass-select chosen" : "grass-select"} onClick={() => selectTheme("grass", 3)}>
+          </div>
+
         </div>
         <p>Title</p>
         <input

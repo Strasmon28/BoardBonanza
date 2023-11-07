@@ -39,7 +39,9 @@ function BoardDetail() {
           <div className="board-title-container">
             <h1 className="board-title">{board.title}</h1>
 
-            <NavLink to={"/boards"}>Back to my boards</NavLink>
+            <NavLink to={"/boards"}>
+              <button>Back to my boards</button>
+              </NavLink>
 
             <OpenModalButton
               buttonText="Update this Board"
