@@ -9,10 +9,29 @@ function CreateBoardModal() {
   const history = useHistory();
   const [title, setTitle] = useState("");
   const [theme, setTheme] = useState("");
+  const [selection, setSelection] = useState(0);
+  const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const newErrors = {}
+
+    if (title === ""){
+      newErrors.title = "A title is required";
+    }
+
+    if (selection === 0){
+      newErrors.selection = "A theme selection is required";
+    }
+
+    if(Object.keys(newErrors).length > 0) {
+      setErrors(newErrors)
+      return;
+    }
+
+
     const boardData = {
       title,
       theme
@@ -24,17 +43,35 @@ function CreateBoardModal() {
     history.push(`/boards/${newBoard.id}`)
   };
 
+  const selectTheme = (chosenTheme, selectNum) => {
+    setTheme(chosenTheme);
+    setSelection(selectNum)
+  }
+
   return (
     <>
       <form onSubmit={handleSubmit}>
         <p>Theme</p>
-        <input
+        {errors && <p className="error-message">{errors.selection}</p>}
+        {/* <input
           type="text"
           value={theme}
           onChange={(e) => setTheme(e.target.value)}
-        />
+        /> */}
+        <div className="theme-select-container">
+          <div className={selection === 1 ? "orange-select chosen" : "orange-select"} onClick={() => selectTheme("orange", 1)}>
+          </div>
+
+          <div className={selection === 2 ? "storm-select chosen" : "storm-select"} onClick={() => selectTheme("storm", 2)}>
+          </div>
+
+          <div className={selection === 3 ? "grass-select chosen" : "grass-select"} onClick={() => selectTheme("grass", 3)}>
+          </div>
+
+        </div>
 
         <p>Title</p>
+        {errors && <p className="error-message">{errors.title}</p>}
         <input
           type="text"
           value={title}

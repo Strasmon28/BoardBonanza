@@ -8,8 +8,16 @@
     margin-left: 15px;
 }
 
-.board-details {
+.orange {
     background-color: orange;
+}
+
+.storm {
+    background-color: darkblue;
+}
+
+.grass {
+    background-color: green;
 }
 
 .all-lists-container {
@@ -39,6 +47,33 @@
 
 .single-list {
     border: solid white;
+    border-radius: 20px;
+    background: white;
+    margin: 10px;
+    padding: 15px;
+    box-shadow: 2px 2px 2px 2px #292929;
+}
+
+.single-list.flower{
+    border: solid 4px pink;
+    border-radius: 20px;
+    background: white;
+    margin: 10px;
+    padding: 15px;
+    box-shadow: 2px 2px 2px 2px #292929;
+}
+
+.single-list.starry{
+    border: solid 4px yellow;
+    border-radius: 20px;
+    background: white;
+    margin: 10px;
+    padding: 15px;
+    box-shadow: 2px 2px 2px 2px #292929;
+}
+
+.single-list.stormy{
+    border: solid 4px darkblue;
     border-radius: 20px;
     background: white;
     margin: 10px;

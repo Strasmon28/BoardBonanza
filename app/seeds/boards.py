@@ -5,7 +5,7 @@ from sqlalchemy.sql import text
 def seed_boards():
 
     board1 = Board(user_id=1, title='Fresh Board', theme='orange')
-    board2 = Board(user_id=1, title='Additional Board', theme='blue')
+    board2 = Board(user_id=1, title='Additional Board', theme='grass')
     board3 = Board(user_id=2, title='Incredibly Fresh', theme='storm')
 
     db.session.add(board1)
