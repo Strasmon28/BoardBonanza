@@ -1,0 +1,34 @@
+.cover-select-container {
+    display: flex;
+}
+
+.flower-select {
+    background-color: pink;
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+}
+
+.flower-select.chosen{
+    background-color: pink;
+    border: 4px solid lightblue;
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+}
+
+
+.starry-select {
+    background-color: yellow;
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+}
+
+.starry-select.chosen {
+    background-color: yellow;
+    border: 4px solid lightblue;
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+}
