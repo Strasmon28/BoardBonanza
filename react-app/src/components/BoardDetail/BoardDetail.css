@@ -15,13 +15,16 @@
 .all-lists-container {
     /* border: solid red; */
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     margin-top: 15px;
 }
 
 .create-list-button {
-    color: red;
+    /* color: red; */
     margin: 10px;
+    height: 50px;
+    align-self: center;
+    border-radius: 30px;
 }
 
 .list-title-container {
@@ -32,10 +35,6 @@
 
 .list-title {
     font-family: Tahoma, sans-serif;
-}
-
-.list-buttons button {
-
 }
 
 .single-list {

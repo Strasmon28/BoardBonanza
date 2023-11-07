@@ -37,9 +37,9 @@ function Dashboard() {
                     to={`/boards/${board.id}`}
                 >
                     <div className="single-board">
-                        <div>{board.id}</div>
+                        {/* <div>{board.id} (placeholder)</div> */}
                         <div>{board.title}</div>
-                        <div>{board.theme}</div>
+                        <div>{board.theme} (theme name)</div>
                     </div>
                 </NavLink>
             ))}
