@@ -8,8 +8,12 @@
     margin-left: 15px;
 }
 
-.board-details {
+.orange {
     background-color: orange;
+}
+
+.storm {
+    background-color: darkblue;
 }
 
 .all-lists-container {

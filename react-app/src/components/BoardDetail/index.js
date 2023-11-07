@@ -18,9 +18,12 @@ function BoardDetail() {
     const params = useParams()
     const boardId = parseInt(params.id) // Turns params string into number
     const board = useSelector((state) => state.boardsState.singleBoard)
-    let lists = useSelector((state) => Object.values(state.listsState.lists))
-    console.log("****** the board", board)
-    console.log("****** the lists", lists)
+    const lists = useSelector((state) => Object.values(state.listsState.lists))
+
+    // const [theme, setTheme] = useState(board?.theme);
+    const theme = board?.theme
+    // console.log("****** the board", board)
+    // console.log("****** the lists", lists)
 
     useEffect(() => {
         dispatch(getOneBoardThunk(boardId))
@@ -32,7 +35,7 @@ function BoardDetail() {
     }
 
     return (
-        <div className="board-details">
+        <div className={theme}>
           <div className="board-title-container">
             <h1 className="board-title">{board.title}</h1>
 
@@ -72,7 +75,7 @@ function BoardDetail() {
                   />
                   </div>
                   </div>
-                <button>+ Create a card (WIP)</button>
+                {/* <button>+ Create a card (WIP)</button> */}
               </div>
             ))}
 

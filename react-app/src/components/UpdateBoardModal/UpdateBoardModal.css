@@ -1,0 +1,26 @@
+.theme-select-container {
+    display: flex;
+}
+
+.orange-select {
+    background-color: orange;
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+}
+
+.orange-select.chosen{
+    background-color: orange;
+    border: 2px solid blue;
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+}
+
+
+.storm-select {
+    background-color: darkblue;
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+}
