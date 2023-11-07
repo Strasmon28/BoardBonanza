@@ -18,15 +18,12 @@ function CreateListModal({ boardId }) {
     e.preventDefault();
 
     const newErrors = {}
-    console.log(title)
-    console.log(selection)
+
     if (title === ""){
-      console.log("error trigger")
       newErrors.title = "A title is required";
     }
 
     if (selection === 0){
-      console.log("error trigger")
       newErrors.selection = "A cover selection is required";
     }
 

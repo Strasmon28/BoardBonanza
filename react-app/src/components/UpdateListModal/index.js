@@ -10,11 +10,28 @@ function UpdateListModal({ list, boardId }) {
   // const [user_id, setUser_id] = useState(0)
   const [title, setTitle] = useState(list?.title);
   const [cover, setCover] = useState(list?.cover);
+  const [errors, setErrors] = useState({});
   const [selection, setSelection] = useState(0);
   const { closeModal } = useModal();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const newErrors = {}
+
+    if (title === ""){
+      newErrors.title = "A title is required";
+    }
+
+    if (selection === 0){
+      newErrors.selection = "A cover selection is required";
+    }
+
+    if(Object.keys(newErrors).length > 0) {
+      setErrors(newErrors)
+      return;
+    }
+
     const listData = {
       title,
       cover
@@ -32,6 +49,7 @@ function UpdateListModal({ list, boardId }) {
     <>
       <form onSubmit={handleSubmit}>
         <p>Cover</p>
+        {errors && <p className="error-message">{errors.selection}</p>}
         {/* <input
           type="text"
           value={cover}
@@ -50,6 +68,7 @@ function UpdateListModal({ list, boardId }) {
         </div>
 
         <p>Title</p>
+        {errors && <p className="error-message">{errors.title}</p>}
         <input
           type="text"
           value={title}

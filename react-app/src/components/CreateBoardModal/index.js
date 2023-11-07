@@ -10,10 +10,28 @@ function CreateBoardModal() {
   const [title, setTitle] = useState("");
   const [theme, setTheme] = useState("");
   const [selection, setSelection] = useState(0);
+  const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const newErrors = {}
+
+    if (title === ""){
+      newErrors.title = "A title is required";
+    }
+
+    if (selection === 0){
+      newErrors.selection = "A theme selection is required";
+    }
+
+    if(Object.keys(newErrors).length > 0) {
+      setErrors(newErrors)
+      return;
+    }
+
+
     const boardData = {
       title,
       theme
@@ -34,6 +52,7 @@ function CreateBoardModal() {
     <>
       <form onSubmit={handleSubmit}>
         <p>Theme</p>
+        {errors && <p className="error-message">{errors.selection}</p>}
         {/* <input
           type="text"
           value={theme}
@@ -52,6 +71,7 @@ function CreateBoardModal() {
         </div>
 
         <p>Title</p>
+        {errors && <p className="error-message">{errors.title}</p>}
         <input
           type="text"
           value={title}

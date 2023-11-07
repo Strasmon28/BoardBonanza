@@ -9,11 +9,28 @@ function UpdateBoardModal({ board }) {
   const [title, setTitle] = useState(board?.title);
   const [theme, setTheme] = useState(board?.theme);
   const [selection, setSelection] = useState(0);
+  const [errors, setErrors] = useState({});
   // const [currentSelection, setCurrentSelection] = useState(0);
   const { closeModal } = useModal();
 
   const handleUpdate = async (e) => {
     e.preventDefault();
+
+    const newErrors = {}
+
+    if (title === ""){
+      newErrors.title = "A title is required";
+    }
+
+    if (selection === 0){
+      newErrors.selection = "A theme selection is required";
+    }
+
+    if(Object.keys(newErrors).length > 0) {
+      setErrors(newErrors)
+      return;
+    }
+
     const boardData = {
         title,
         theme
@@ -32,6 +49,7 @@ function UpdateBoardModal({ board }) {
     <>
       <form onSubmit={handleUpdate}>
         <p>Theme</p>
+        {errors && <p className="error-message">{errors.selection}</p>}
         {/* <input
           type="text"
           value={theme}
@@ -49,6 +67,7 @@ function UpdateBoardModal({ board }) {
 
         </div>
         <p>Title</p>
+        {errors && <p className="error-message">{errors.title}</p>}
         <input
           type="text"
           value={title}
