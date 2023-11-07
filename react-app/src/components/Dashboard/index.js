@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllBoardsThunk } from "../../store/boards";
 import OpenModalButton from "../OpenModalButton";
 import CreateBoardModal from "../CreateBoardModal";
+import "./Dashboard.css";
 
 function Dashboard() {
     const dispatch = useDispatch();
@@ -22,22 +23,28 @@ function Dashboard() {
         <>
             <h1>This is the user dashboard</h1>
             {/* <button>+ Create a Board</button> */}
+
+            <div className="board-list">
             <OpenModalButton
               buttonText="Create a Board"
+              buttonClassName="create-board-button"
             //   onItemClick={closeMenu}
               modalComponent={<CreateBoardModal />}
             />
             {boards.map((board) => (
                 <NavLink
                     key={board.id}
-                    className="board-list"
                     to={`/boards/${board.id}`}
                 >
-                    <div>{board.id}</div>
-                    <div>{board.title}</div>
-                    <div>{board.theme}</div>
+                    <div className="single-board">
+                        <div>{board.id}</div>
+                        <div>{board.title}</div>
+                        <div>{board.theme}</div>
+                    </div>
                 </NavLink>
             ))}
+            </div>
+
         </>
     )
 }
