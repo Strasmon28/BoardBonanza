@@ -134,7 +134,7 @@ export default function boardsReducer (state = initialState, action) {
             return newState;
         case UPDATE_BOARD:
             newState = { ...state }
-            newState.boards[action.boardId] = action.boardData;
+            newState.singleBoard = action.boardData;
             return newState;
         case DELETE_BOARD:
             newState = { ...state }

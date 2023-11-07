@@ -1,0 +1,49 @@
+.theme-select-container {
+    display: flex;
+}
+
+.orange-select {
+    background-color: orange;
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+}
+
+.orange-select.chosen{
+    background-color: orange;
+    border: 4px solid lightblue;
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+}
+
+
+.storm-select {
+    background-color: darkblue;
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+}
+
+.storm-select.chosen {
+    background-color: darkblue;
+    border: 4px solid lightblue;
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+}
+
+.grass-select {
+    background-color: green;
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+}
+
+.grass-select.chosen {
+    background-color: green;
+    border: 4px solid lightblue;
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+}
