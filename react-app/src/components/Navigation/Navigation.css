@@ -1,5 +1,27 @@
+.navbar {
+  display: flex;
+  padding: 20px 50px 20px 50px;
+  justify-content: space-between;
+  border-bottom: solid 1px black;
+}
+
+.home-logo {
+  align-self: center;
+}
+
+.profile-icon {
+  height: 30px;
+  width: 30px;
+  border-radius: 20px;
+}
+
 .profile-dropdown {
   position: absolute;
+  right: 25px;
+  background: white;
+  padding: 10px;
+  margin-top: 5px;
+  border: 2px solid black;
 }
 
 .hidden {

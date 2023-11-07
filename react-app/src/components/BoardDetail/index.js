@@ -11,6 +11,7 @@ import UpdateListModal from "../UpdateListModal";
 import { getAllListsThunk } from "../../store/lists";
 import "./BoardDetail.css"
 import DeleteListModal from "../DeleteListModal";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 function BoardDetail() {
     const dispatch = useDispatch();
@@ -31,8 +32,12 @@ function BoardDetail() {
     }
 
     return (
-        <>
-            <h1>This is the board detail page</h1>
+        <div className="board-details">
+          <div className="board-title-container">
+            <h1 className="board-title">{board.title}</h1>
+
+            <NavLink to={"/boards"}>Back to my boards</NavLink>
+
             <OpenModalButton
               buttonText="Update this Board"
             //   onItemClick={closeMenu}
@@ -44,37 +49,45 @@ function BoardDetail() {
             //   onItemClick={closeMenu}
               modalComponent={<DeleteBoardModal boardId={board.id} />}
             />
-
-            <div>{board.id}</div>
-            <div>{board.title}</div>
-            <div>{board.theme}</div>
+          </div>
+            {/* <div>{board.id}</div> */}
+            {/* <h2>{board.title}</h2> */}
+            {/* <div>{board.theme}</div> */}
 
           <div className="all-lists-container">
             {lists && lists.map((list) => (
               <div key={list.id} className="single-list">
-                <div>{list.title}</div>
-                <OpenModalButton
-                  buttonText="Update this list"
-                  //   onItemClick={closeMenu}
-                  modalComponent={<UpdateListModal list={list} boardId={board.id} />}
-                />
-                <OpenModalButton
-                  buttonText="Delete this list"
-                  //   onItemClick={closeMenu}
-                  modalComponent={<DeleteListModal listId={list.id}  />}
-                />
-                <button>+ Create a card</button>
+                <div className="list-title-container">
+                  <div className="list-title">{list.title}</div>
+                  <div className="list-buttons">
+                  <OpenModalButton
+                    buttonText="Update"
+                    //   onItemClick={closeMenu}
+                    modalComponent={<UpdateListModal list={list} boardId={board.id} />}
+                  />
+                  <OpenModalButton
+                    buttonText="Delete"
+                    //   onItemClick={closeMenu}
+                    modalComponent={<DeleteListModal listId={list.id}  />}
+                  />
+                  </div>
+                  </div>
+                <button>+ Create a card (WIP)</button>
               </div>
             ))}
-          </div>
+
             <OpenModalButton
               buttonText="+ Create List"
             //   onItemClick={closeMenu}
+              buttonClassName="create-list-button"
               modalComponent={<CreateListModal boardId={boardId} />}
             />
+          </div>
+
+
             {/* <button>+ Create List</button> */}
 
-        </>
+        </div>
     )
 }
 
