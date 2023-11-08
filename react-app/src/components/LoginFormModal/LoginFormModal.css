@@ -1,0 +1,30 @@
+.login-modal {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 300px;
+}
+
+.login-error-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.login-error {
+    color: red
+}
+
+.login-title {
+    align-self: center;
+    font-family: Tahoma, sans-serif;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: space-around;
+    align-items: center;
+}

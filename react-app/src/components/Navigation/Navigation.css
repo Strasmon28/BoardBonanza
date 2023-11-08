@@ -16,12 +16,21 @@
 }
 
 .profile-dropdown {
+  display: flex;
   position: absolute;
   right: 25px;
   background: white;
   padding: 10px;
   margin-top: 5px;
   border: 2px solid black;
+  flex-direction: column;
+}
+
+.login-buttons {
+  display: flex;
+  flex-direction: column;
+  height: 55px;
+  justify-content: space-around;
 }
 
 .hidden {

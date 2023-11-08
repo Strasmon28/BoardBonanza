@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import SignupFormPage from "./components/SignupFormPage";
-import LoginFormPage from "./components/LoginFormPage";
+// import SignupFormPage from "./components/SignupFormPage";
+// import LoginFormPage from "./components/LoginFormPage";
 import Homepage from "./components/Homepage";
 import Dashboard from "./components/Dashboard";
 import BoardDetail from "./components/BoardDetail";
