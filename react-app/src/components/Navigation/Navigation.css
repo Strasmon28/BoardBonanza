@@ -33,6 +33,18 @@
   justify-content: space-around;
 }
 
+.login-button {
+  color: blue;
+  font-family: Tahoma, sans-serif;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: lightgray;
+}
+
 .hidden {
   display: none;
 }

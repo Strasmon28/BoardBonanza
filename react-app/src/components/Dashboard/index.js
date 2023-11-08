@@ -21,7 +21,7 @@ function Dashboard() {
 
     return (
         <>
-            <h1>This is the user dashboard</h1>
+            <h1 className="dashboard-title">My Dashboard</h1>
             {/* <button>+ Create a Board</button> */}
 
             <div className="board-list">

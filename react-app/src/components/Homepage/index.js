@@ -9,7 +9,7 @@ function Homepage () {
     return(
         <>
             <div className="homepage">
-                <h1>Welcome to BoardBonanza</h1>
+                <h1 className="homepage-title">Welcome to BoardBonanza</h1>
                 {currentUser && (<NavLink to='/boards'>My Dashboard</NavLink>)}
             </div>
         </>
