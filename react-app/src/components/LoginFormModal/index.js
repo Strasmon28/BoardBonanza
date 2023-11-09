@@ -42,26 +42,33 @@ function LoginFormModal() {
           ))}
         </div>
         <form className="login-form" onSubmit={handleSubmit}>
+        <div className="email-container">
         <label>
           Email
+        </label>
           <input
             type="text"
+            className="profile-login-field"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </label>
+
+        </div>
+        <div className="password-container">
         <label>
           Password
+        </label>
           <input
             type="password"
+            className="profile-login-field"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </label>
-        <button type="submit">Log In</button>
-        <button onClick={handleDemoUser}>Demo User</button>
+        </div>
+        <button className="profile-login-button" type="submit">Log In</button>
+        <button className="profile-login-button" onClick={handleDemoUser}>Demo User</button>
       </form>
     </div>
   );

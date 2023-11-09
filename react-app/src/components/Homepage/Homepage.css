@@ -24,6 +24,22 @@
     font-family: Tahoma, sans-serif;
 }
 
+.homepage-dashboard-redirect {
+    text-decoration: none;
+    display: flex;
+    cursor: pointer;
+    color: black;
+    width: 110px;
+    justify-content: center;
+    border: solid black;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.homepage-dashboard-redirect:hover {
+    background-color: rgb(182, 182, 182);
+}
+
 .dashboard-auth-container {
     display: flex;
     align-items: center;
@@ -41,4 +57,11 @@
     cursor: pointer;
     background-color: none;
     border: none;
+    border: solid black;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.dashboard-login-button:hover {
+    background-color: rgb(182, 182, 182);
 }

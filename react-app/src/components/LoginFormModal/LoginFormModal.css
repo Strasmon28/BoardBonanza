@@ -25,6 +25,44 @@
     display: flex;
     flex-direction: column;
     height: 200px;
+    width: 100%;
     justify-content: space-around;
     align-items: center;
+    font-family: Tahoma, sans-serif;
+}
+
+.email-container {
+    display: flex;
+    width: 45%;
+    justify-content: space-between;
+}
+
+.password-container {
+    display: flex;
+    width: 50%;
+    padding-right: 23px;
+    justify-content: space-between;
+}
+
+.profile-login-field {
+    font-family: Tahoma, sans-serif;
+    background-color: none;
+    border: none;
+    border: solid black;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.profile-login-button {
+    font-family: Tahoma, sans-serif;
+    cursor: pointer;
+    background-color: none;
+    border: none;
+    border: solid black;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.profile-login-button:hover {
+    background-color: rgb(182, 182, 182);
 }

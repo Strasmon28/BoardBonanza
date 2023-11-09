@@ -22,7 +22,7 @@ function Homepage () {
                     (
                         <>
                             <h4>Let's get back to planning</h4>
-                            <NavLink to='/boards'>My Dashboard</NavLink>
+                            <NavLink className="homepage-dashboard-redirect" to='/boards'>My Dashboard</NavLink>
                         </>
                     )
                     :
