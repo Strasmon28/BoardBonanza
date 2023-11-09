@@ -21,7 +21,8 @@ function Dashboard() {
 
     return (
         <>
-            <h1>This is the user dashboard</h1>
+            <h1 className="dashboard-title">My Dashboard</h1>
+            <h3 className="dashboard-subtitle">Create a new board or select an existing board</h3>
             {/* <button>+ Create a Board</button> */}
 
             <div className="board-list">
@@ -35,11 +36,12 @@ function Dashboard() {
                 <NavLink
                     key={board.id}
                     to={`/boards/${board.id}`}
+                    className="dashboard-board-links"
                 >
-                    <div className="single-board">
+                    <div className={"dashboard-single-board" + ` ${board.theme}`}>
                         {/* <div>{board.id} (placeholder)</div> */}
-                        <div>{board.title}</div>
-                        <div>{board.theme} (theme name)</div>
+                        <div className="dashboard-board-title">{board.title}</div>
+                        {/* <div>{board.theme} (theme name)</div> */}
                     </div>
                 </NavLink>
             ))}

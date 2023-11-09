@@ -1,39 +1,50 @@
-.signup-container {
+.login-modal {
     display: flex;
     flex-direction: column;
+    width: 500px;
+    height: 300px;
 }
 
-.signup-errors {
-    color: red;
+.login-error-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-.signup-title {
+.login-error {
+    color: red
+}
+
+.login-title {
     align-self: center;
     font-family: Tahoma, sans-serif;
 }
 
-.signup-form {
+.login-form {
     display: flex;
     flex-direction: column;
-    font-family: Tahoma, sans-serif;
-    height: 430px;
-    width: 460px;
-    justify-content: space-between;
-    margin-bottom: 25px;
+    height: 200px;
+    width: 100%;
+    justify-content: space-around;
     align-items: center;
+    font-family: Tahoma, sans-serif;
 }
 
-.signup-fields {
+.email-container {
     display: flex;
-    width: 329px;
-    height: 75%;
-    flex-direction: column;
+    width: 45%;
     justify-content: space-between;
-    flex-wrap: wrap;
-    align-content: center;
 }
 
-.signup-fields input {
+.password-container {
+    display: flex;
+    width: 50%;
+    padding-right: 23px;
+    justify-content: space-between;
+}
+
+.profile-login-field {
     font-family: Tahoma, sans-serif;
     background-color: none;
     border: none;
@@ -42,7 +53,7 @@
     background-color: white;
 }
 
-.signup-button {
+.profile-login-button {
     font-family: Tahoma, sans-serif;
     cursor: pointer;
     background-color: none;
@@ -52,6 +63,6 @@
     background-color: white;
 }
 
-.signup-button:hover {
+.profile-login-button:hover {
     background-color: rgb(182, 182, 182);
 }

@@ -1,6 +1,13 @@
-.board-title-container{
+.board-title-container {
     display: flex;
     align-items: center;
+}
+
+.board-buttons-container {
+    display: flex;
+    width: 270px;
+    margin-left: 25px;
+    justify-content: space-between;
 }
 
 .board-title {
