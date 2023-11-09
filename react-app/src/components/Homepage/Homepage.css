@@ -7,6 +7,38 @@
     justify-content: center;
 }
 
+
 .homepage-title {
     font-family: Tahoma, sans-serif;
+}
+
+.homepage-description {
+    font-family: Tahoma, sans-serif;
+}
+
+.homepage h3 {
+    font-family: Tahoma, sans-serif;
+}
+
+.homepage h4 {
+    font-family: Tahoma, sans-serif;
+}
+
+.dashboard-auth-container {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    width: 175px;
+    justify-content: space-around;
+}
+
+.or {
+    font-family: Tahoma, sans-serif;
+}
+
+.dashboard-login-button {
+    font-family: Tahoma, sans-serif;
+    cursor: pointer;
+    background-color: none;
+    border: none;
 }
