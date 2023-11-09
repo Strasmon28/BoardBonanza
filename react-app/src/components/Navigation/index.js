@@ -9,8 +9,13 @@ function Navigation({ isLoaded }){
 
 	return (
 		<div className="navbar">
-			<div className="home-logo">
-				<NavLink exact to="/">BoardBonanza</NavLink>
+			<div className="navbar-options">
+				<div className="home-logo">
+					<NavLink exact to="/">BoardBonanza</NavLink>
+				</div>
+				{sessionUser && (
+					<NavLink exact to="/boards">My Dashboard</NavLink>
+				)}
 			</div>
 			{isLoaded && (
 				<div>

@@ -39,10 +39,10 @@ function BoardDetail() {
           <div className="board-title-container">
             <h1 className="board-title">{board.title}</h1>
 
-            <NavLink to={"/boards"}>
+            {/* <NavLink to={"/boards"}>
               <button>Back to my boards</button>
-              </NavLink>
-
+            </NavLink> */}
+            <div className="board-buttons-container">
             <OpenModalButton
               buttonText="Update this Board"
             //   onItemClick={closeMenu}
@@ -54,6 +54,7 @@ function BoardDetail() {
             //   onItemClick={closeMenu}
               modalComponent={<DeleteBoardModal boardId={board.id} />}
             />
+            </div>
           </div>
             {/* <div>{board.id}</div> */}
             {/* <h2>{board.title}</h2> */}

@@ -10,6 +10,7 @@ function Homepage () {
         <>
             <div className="homepage">
                 <h1 className="homepage-title">Welcome to BoardBonanza</h1>
+                <h3>Don't get bored of your projects, board it!</h3>
                 {currentUser && (<NavLink to='/boards'>My Dashboard</NavLink>)}
             </div>
         </>

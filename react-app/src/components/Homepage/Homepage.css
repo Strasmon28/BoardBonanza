@@ -1,6 +1,7 @@
 .homepage {
     display: flex;
     height: 430px;
+    padding-left: 20px;
     background: #93efff;
     flex-direction: column;
     justify-content: center;
