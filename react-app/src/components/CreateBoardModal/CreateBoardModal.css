@@ -1,0 +1,51 @@
+.create-board-modal {
+    width: 350px;
+    height: 210px;
+}
+
+.create-board-theme-container {
+    margin-left: 20px;
+}
+
+.theme-select-container {
+    display: flex;
+    justify-content: space-around;
+    width: 150px;
+}
+
+.create-board-title {
+    font-family: Tahoma, sans-serif;
+}
+
+.create-board-form {
+    height: 100%;
+}
+
+.create-board-form input {
+    font-family: Tahoma, sans-serif;
+    background-color: none;
+    border: none;
+    border: solid black;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.create-board-title-container {
+    margin-left: 20px;
+}
+
+.confirm-create-board-button {
+    margin-top: 20px;
+    margin-left: 120px;
+    font-family: Tahoma, sans-serif;
+    cursor: pointer;
+    background-color: none;
+    border: none;
+    border: solid black;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.confirm-create-board-button:hover {
+    background-color: rgb(182, 182, 182);
+}

@@ -47,7 +47,7 @@ function LoginFormModal() {
           Email
         </label>
           <input
-            type="text"
+            type="email"
             className="profile-login-field"
             value={email}
             onChange={(e) => setEmail(e.target.value)}

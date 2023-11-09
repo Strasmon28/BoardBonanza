@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { createBoardThunk } from "../../store/boards";
 import { useHistory } from "react-router-dom";
+import './CreateBoardModal.css'
 
 function CreateBoardModal() {
   const dispatch = useDispatch();
@@ -49,9 +50,10 @@ function CreateBoardModal() {
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <p>Theme</p>
+    <div className="create-board-modal">
+      <form className="create-board-form" onSubmit={handleSubmit}>
+      <div className="create-board-theme-container">
+        <p className="create-board-title">Theme</p>
         {errors && <p className="error-message">{errors.selection}</p>}
         {/* <input
           type="text"
@@ -69,17 +71,20 @@ function CreateBoardModal() {
           </div>
 
         </div>
+      </div>
 
-        <p>Title</p>
+      <div className="create-board-title-container">
+        <p className="create-board-title">Title</p>
         {errors && <p className="error-message">{errors.title}</p>}
         <input
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <button type="submit">Create Board</button>
+      </div>
+        <button className="confirm-create-board-button" type="submit">Create Board</button>
       </form>
-    </>
+    </div>
   );
 }
 
