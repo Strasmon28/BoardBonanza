@@ -16,15 +16,18 @@
 }
 
 .orange {
-    background-color: orange;
+    /* background-color: orange; */
+    background: linear-gradient(#ff7300, yellow);
 }
 
 .storm {
-    background-color: darkblue;
+    /* background-color: darkblue; */
+    background: linear-gradient(#0022ff, #292929);
 }
 
 .grass {
-    background-color: green;
+    /* background-color: green; */
+    background: linear-gradient(#00cf00, lime, white);
 }
 
 .all-lists-container {

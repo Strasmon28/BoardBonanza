@@ -62,7 +62,7 @@
 .profile-dropdown {
     display: flex;
     position: absolute;
-    height: 90px;
+    height: auto;
     width: 95px;
     right: 25px;
     background: white;
@@ -71,6 +71,11 @@
     border: 2px solid black;
     flex-direction: column;
     justify-content: flex-start;
+}
+
+.profile-title {
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .login-buttons {

@@ -48,6 +48,7 @@ function ProfileButton({ user }) {
       <div className={ulClassName} ref={ulRef}>
         {user ? (
           <div className="profile-user-info">
+            <h5 className="profile-title">My Account</h5>
             <div>{user.username}</div>
             <div>{user.email}</div>
             <div>
