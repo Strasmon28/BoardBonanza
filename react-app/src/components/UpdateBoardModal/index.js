@@ -46,8 +46,9 @@ function UpdateBoardModal({ board }) {
 
   console.log("Chosen theme", theme)
   return (
-    <>
-      <form onSubmit={handleUpdate}>
+    <div className="update-board-modal">
+      <form className="update-board-form" onSubmit={handleUpdate}>
+        <div className="update-board-title-container">
         <p>Theme</p>
         {errors && <p className="error-message">{errors.selection}</p>}
         {/* <input
@@ -66,6 +67,9 @@ function UpdateBoardModal({ board }) {
           </div>
 
         </div>
+        </div>
+
+        <div className="update-board-title-container">
         <p>Title</p>
         {errors && <p className="error-message">{errors.title}</p>}
         <input
@@ -73,9 +77,10 @@ function UpdateBoardModal({ board }) {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <button type="submit">Update Board</button>
+        </div>
+        <button className="confirm-update-board-button" type="submit">Update Board</button>
       </form>
-    </>
+    </div>
   );
 }
 
