@@ -1,3 +1,59 @@
 .error-message {
     color: red
 }
+
+.list-form-modal {
+    width: 350px;
+    height: 210px;
+}
+
+.list-form {
+    font-family: Tahoma, sans-serif;
+}
+
+.list-form-cover-container {
+    margin-left: 20px;
+}
+
+.cover-select-container {
+    display: flex;
+    justify-content: space-around;
+    width: 150px;
+}
+
+.list-form {
+    height: 100%;
+}
+
+.list-form input {
+    font-family: Tahoma, sans-serif;
+    background-color: none;
+    border: none;
+    border: solid black;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.list-form-cover-container {
+    margin-left: 20px;
+}
+
+.list-form-title-container {
+    margin-left: 20px;
+}
+
+.list-form-button {
+    margin-top: 20px;
+    margin-left: 120px;
+    font-family: Tahoma, sans-serif;
+    cursor: pointer;
+    background-color: none;
+    border: none;
+    border: solid black;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.list-form-button:hover {
+    background-color: rgb(182, 182, 182);
+}

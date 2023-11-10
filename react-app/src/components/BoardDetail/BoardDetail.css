@@ -49,7 +49,8 @@
 }
 
 .create-list-button {
-    /* color: red; */
+    font-family: Tahoma, sans-serif;
+    cursor: pointer;
     margin: 10px;
     height: 50px;
     align-self: center;
