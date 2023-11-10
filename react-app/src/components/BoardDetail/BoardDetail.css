@@ -34,8 +34,23 @@
     margin-top: 15px;
 }
 
+.details-board-button {
+    font-family: Tahoma, sans-serif;
+    cursor: pointer;
+    background-color: none;
+    border: none;
+    border: solid 1px black;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.details-board-button:hover {
+    background-color: rgb(182, 182, 182);
+}
+
 .create-list-button {
-    /* color: red; */
+    font-family: Tahoma, sans-serif;
+    cursor: pointer;
     margin: 10px;
     height: 50px;
     align-self: center;
@@ -86,4 +101,18 @@
     margin: 10px;
     padding: 15px;
     box-shadow: 2px 2px 2px 2px #292929;
+}
+
+.details-list-button {
+    font-family: Tahoma, sans-serif;
+    cursor: pointer;
+    background-color: none;
+    border: none;
+    border: solid 1px black;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.details-list-button:hover {
+    background-color: rgb(182, 182, 182);
 }

@@ -48,8 +48,9 @@ function CreateListModal({ boardId }) {
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <div className="list-form-modal">
+      <form className="list-form" onSubmit={handleSubmit}>
+        <div className="list-form-cover-container">
         <p>Cover</p>
         {errors && <p className="error-message">{errors.selection}</p>}
         {/* <input
@@ -69,7 +70,9 @@ function CreateListModal({ boardId }) {
           </div> */}
 
         </div>
+        </div>
 
+        <div className="list-form-title-container">
         <p>Title</p>
         {errors && <p className="error-message">{errors.title}</p>}
         <input
@@ -77,9 +80,10 @@ function CreateListModal({ boardId }) {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <button type="submit">Create List</button>
+        </div>
+        <button className="list-form-button" type="submit">Create List</button>
       </form>
-    </>
+    </div>
   );
 }
 

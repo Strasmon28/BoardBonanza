@@ -46,8 +46,9 @@ function UpdateListModal({ list, boardId }) {
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <div className="list-form-modal">
+      <form className="list-form" onSubmit={handleSubmit}>
+        <div className="list-form-cover-container">
         <p>Cover</p>
         {errors && <p className="error-message">{errors.selection}</p>}
         {/* <input
@@ -66,7 +67,9 @@ function UpdateListModal({ list, boardId }) {
           </div> */}
 
         </div>
+        </div>
 
+        <div className="list-form-title-container">
         <p>Title</p>
         {errors && <p className="error-message">{errors.title}</p>}
         <input
@@ -74,9 +77,10 @@ function UpdateListModal({ list, boardId }) {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <button type="submit">Update List</button>
+        </div>
+        <button className="list-form-button" type="submit">Update List</button>
       </form>
-    </>
+    </div>
   );
 }
 

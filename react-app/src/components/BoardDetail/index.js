@@ -45,12 +45,14 @@ function BoardDetail() {
             <div className="board-buttons-container">
             <OpenModalButton
               buttonText="Update this Board"
+              buttonClassName={"details-board-button"}
             //   onItemClick={closeMenu}
               modalComponent={<UpdateBoardModal board={board} />}
             />
 
             <OpenModalButton
               buttonText="Delete this Board"
+              buttonClassName={"details-board-button"}
             //   onItemClick={closeMenu}
               modalComponent={<DeleteBoardModal boardId={board.id} />}
             />
@@ -69,11 +71,13 @@ function BoardDetail() {
                   <OpenModalButton
                     buttonText="Update"
                     //   onItemClick={closeMenu}
+                    buttonClassName="details-list-button"
                     modalComponent={<UpdateListModal list={list} boardId={board.id} />}
                   />
                   <OpenModalButton
                     buttonText="Delete"
                     //   onItemClick={closeMenu}
+                    buttonClassName="details-list-button"
                     modalComponent={<DeleteListModal listId={list.id}  />}
                   />
                   </div>
