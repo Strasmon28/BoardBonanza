@@ -25,7 +25,7 @@
 
 .navbar-options {
   display: flex;
-  width: 30%;
+  width: 350px;
   align-items: center;
   justify-content: space-between;
 }
@@ -80,6 +80,14 @@
 .profile-title {
   margin-top: 10px;
   margin-bottom: 20px;
+}
+
+.user-info-container {
+  display: flex;
+  height: 47px;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .login-buttons {

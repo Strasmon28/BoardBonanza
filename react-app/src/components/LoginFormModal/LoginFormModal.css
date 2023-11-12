@@ -31,10 +31,16 @@
     font-family: Tahoma, sans-serif;
 }
 
+.login-fields-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .email-container {
     display: flex;
     width: 45%;
     justify-content: space-between;
+    flex-direction: column;
 }
 
 .password-container {
@@ -42,6 +48,7 @@
     width: 50%;
     padding-right: 23px;
     justify-content: space-between;
+    flex-direction: column;
 }
 
 .profile-login-field {

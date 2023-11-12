@@ -49,8 +49,10 @@ function ProfileButton({ user }) {
         {user ? (
           <div className="profile-user-info">
             <h5 className="profile-title">My Account</h5>
-            <div>{user.username}</div>
-            <div>{user.email}</div>
+            <div className="user-info-container">
+              <div>{user.username}</div>
+              <div>{user.email}</div>
+            </div>
             <div>
               <button className="profile-logout" onClick={handleLogout}>Log Out</button>
             </div>
