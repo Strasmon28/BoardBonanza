@@ -42,6 +42,7 @@ function LoginFormModal() {
           ))}
         </div>
         <form className="login-form" onSubmit={handleSubmit}>
+        <div className="login-fields-container">
         <div className="email-container">
         <label>
           Email
@@ -67,8 +68,12 @@ function LoginFormModal() {
             required
           />
         </div>
-        <button className="profile-login-button" type="submit">Log In</button>
-        <button className="profile-login-button" onClick={handleDemoUser}>Demo User</button>
+        </div>
+
+        <div className="login-form-buttons-container">
+          <button className="profile-login-button" type="submit">Log In</button>
+          <button className="profile-login-button" onClick={handleDemoUser}>Demo User</button>
+        </div>
       </form>
     </div>
   );

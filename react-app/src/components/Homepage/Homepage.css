@@ -2,7 +2,7 @@
     display: flex;
     height: 430px;
     padding-left: 20px;
-    background: #93efff;
+    background: linear-gradient(#00c0ff, #7373ff);
     flex-direction: column;
     justify-content: center;
 }
@@ -44,7 +44,7 @@
     display: flex;
     align-items: center;
     height: 30px;
-    width: 175px;
+    width: 260px;
     justify-content: space-around;
 }
 
@@ -55,6 +55,7 @@
 .dashboard-login-button {
     font-family: Tahoma, sans-serif;
     cursor: pointer;
+    width: 80px;
     background-color: none;
     border: none;
     border: solid black;
