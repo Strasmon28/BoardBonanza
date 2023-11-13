@@ -73,6 +73,7 @@
     padding: 10px;
     margin-top: 5px;
     border: 2px solid black;
+    border-radius: 10px;
     flex-direction: column;
     justify-content: flex-start;
 }
@@ -98,10 +99,11 @@
 }
 
 .login-button {
-  color: blue;
+  color: black;
   font-family: Tahoma, sans-serif;
   background-color: white;
-  border: none;
+  border: solid black;
+  border-radius: 20px;
   cursor: pointer;
 }
 
