@@ -50,6 +50,7 @@ function CreateListModal({ boardId }) {
   return (
     <div className="list-form-modal">
       <form className="list-form" onSubmit={handleSubmit}>
+      <h3 className="create-list-title">Create List</h3>
         <div className="list-form-cover-container">
         <p>Cover</p>
         {errors && <p className="error-message">{errors.selection}</p>}
@@ -81,7 +82,7 @@ function CreateListModal({ boardId }) {
           onChange={(e) => setTitle(e.target.value)}
         />
         </div>
-        <button className="list-form-button" type="submit">Create List</button>
+        <button className="list-form-button" type="submit">Create</button>
       </form>
     </div>
   );

@@ -1,8 +1,9 @@
 .homepage {
     display: flex;
-    height: 430px;
+    /* height: 485px; */
+    height: auto;
     padding-left: 20px;
-    background: linear-gradient(#00c0ff, #7373ff);
+    background: linear-gradient(#00c0ff, #a8feff, #5757ff);
     flex-direction: column;
     justify-content: center;
 }
@@ -30,6 +31,7 @@
     cursor: pointer;
     color: black;
     width: 110px;
+    margin-bottom: 20px;
     justify-content: center;
     border: solid black;
     border-radius: 20px;
@@ -55,6 +57,7 @@
 .dashboard-login-button {
     font-family: Tahoma, sans-serif;
     cursor: pointer;
+    /* margin-bottom: 20px; */
     width: 80px;
     background-color: none;
     border: none;
@@ -65,4 +68,12 @@
 
 .dashboard-login-button:hover {
     background-color: rgb(182, 182, 182);
+}
+
+.homepage-section2 {
+    font-family: Tahoma, sans-serif;
+    padding-left: 20px;
+    background: linear-gradient(transparent, #cffeff);
+    height: auto;
+    padding-bottom: 20px;
 }

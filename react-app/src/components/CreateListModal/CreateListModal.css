@@ -4,7 +4,7 @@
 
 .list-form-modal {
     width: 350px;
-    height: 210px;
+    height: auto;
 }
 
 .list-form {
@@ -23,6 +23,9 @@
 
 .list-form {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: Tahoma, sans-serif;
 }
 
 .list-form input {
@@ -44,7 +47,10 @@
 
 .list-form-button {
     margin-top: 20px;
-    margin-left: 120px;
+    /* margin-left: 120px; */
+    margin-bottom: 20px;
+    align-self: center;
+    width: 60px;
     font-family: Tahoma, sans-serif;
     cursor: pointer;
     background-color: none;
@@ -56,4 +62,9 @@
 
 .list-form-button:hover {
     background-color: rgb(182, 182, 182);
+}
+
+.create-list-title {
+    align-self: center;
+    margin-bottom: 0px;
 }
