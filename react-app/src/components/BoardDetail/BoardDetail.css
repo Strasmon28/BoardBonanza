@@ -15,6 +15,21 @@
     margin-left: 15px;
 }
 
+.color-orange {
+    background: linear-gradient(#ff7300, yellow);
+    height: 850px;
+}
+
+.color-storm {
+    background: linear-gradient(#005dff, #181818);
+    height: 850px;
+}
+
+.color-grass {
+    background: linear-gradient(#00cf00, lime, white);
+    height: 850px;
+}
+
 .orange {
     /* background-color: orange; */
     background: linear-gradient(#ff7300, yellow);
@@ -22,7 +37,7 @@
 
 .storm {
     /* background-color: darkblue; */
-    background: linear-gradient(#0022ff, #292929);
+    background: linear-gradient(#005dff, #181818);
 }
 
 .grass {

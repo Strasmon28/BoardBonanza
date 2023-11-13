@@ -59,6 +59,7 @@
 .profile-icon {
   height: 30px;
   width: 30px;
+  background-color: white;
   border-radius: 20px;
   cursor: pointer;
 }
@@ -80,7 +81,9 @@
 
 .profile-title {
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: solid 1px black;
 }
 
 .user-info-container {
@@ -113,4 +116,9 @@
 
 .hidden {
   display: none;
+}
+
+.profile-logout-container {
+  display: flex;
+  justify-content: center;
 }

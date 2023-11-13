@@ -52,6 +52,7 @@ function CreateBoardModal() {
   return (
     <div className="create-board-modal">
       <form className="create-board-form" onSubmit={handleSubmit}>
+      <h3 className="create-board-header">Create Board</h3>
       <div className="create-board-theme-container">
         <p className="create-board-title">Theme</p>
         {errors && <p className="error-message">{errors.selection}</p>}
@@ -82,7 +83,7 @@ function CreateBoardModal() {
           onChange={(e) => setTitle(e.target.value)}
         />
       </div>
-        <button className="confirm-create-board-button" type="submit">Create Board</button>
+        <button className="confirm-create-board-button" type="submit">Create</button>
       </form>
     </div>
   );

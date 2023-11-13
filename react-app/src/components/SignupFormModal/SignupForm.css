@@ -1,6 +1,7 @@
 .signup-container {
     display: flex;
     flex-direction: column;
+    height: auto;
 }
 
 .signup-errors {
