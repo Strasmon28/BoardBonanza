@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { useHistory } from "react-router-dom";
 import { deleteBoardThunk } from "../../store/boards";
-
+import "./DeleteBoardModal.css"
 
 function DeleteBoardModal({ boardId }){
     const dispatch = useDispatch();
@@ -23,12 +23,14 @@ function DeleteBoardModal({ boardId }){
     }
 
     return (
-        <>
+        <div className="delete-board-modal">
             <h1>Do you want to delete this board?</h1>
             <h2>Warning: *this is irreversable*</h2>
-            <button onClick={handleDelete}>Yes</button>
-            <button onClick={handleCancel}>No, cancel delete</button>
-        </>
+            <div className="delete-board-buttons-container">
+            <button className="delete-board-button" onClick={handleDelete}>Yes</button>
+            <button className="delete-board-button" onClick={handleCancel}>No, cancel delete</button>
+            </div>
+        </div>
     )
 }
 

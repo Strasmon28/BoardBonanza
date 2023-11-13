@@ -1,0 +1,26 @@
+.delete-board-modal {
+    height: auto;
+    font-family: Tahoma, sans-serif;
+    padding: 15px;
+}
+
+.delete-board-buttons-container {
+    font-family: Tahoma, sans-serif;
+    display: flex;
+    /* padding-left: 100px; */
+    justify-content: space-evenly;
+}
+
+.delete-board-button {
+    font-family: Tahoma, sans-serif;
+    cursor: pointer;
+    background-color: none;
+    border: none;
+    border: solid 1px black;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.delete-board-button:hover {
+    background-color: rgb(182, 182, 182);
+}
