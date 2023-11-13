@@ -48,6 +48,7 @@ function UpdateListModal({ list, boardId }) {
   return (
     <div className="list-form-modal">
       <form className="list-form" onSubmit={handleSubmit}>
+        <h3 className="update-list-title">Update List</h3>
         <div className="list-form-cover-container">
         <p>Cover</p>
         {errors && <p className="error-message">{errors.selection}</p>}
@@ -78,7 +79,7 @@ function UpdateListModal({ list, boardId }) {
           onChange={(e) => setTitle(e.target.value)}
         />
         </div>
-        <button className="list-form-button" type="submit">Update List</button>
+        <button className="list-form-button" type="submit">Update</button>
       </form>
     </div>
   );

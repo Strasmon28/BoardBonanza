@@ -38,9 +38,3 @@ function App() {
 
 export default App;
 
-{/* <Route path="/login" >
-  <LoginFormPage />
-</Route>
-<Route path="/signup">
-  <SignupFormPage />
-</Route> */}

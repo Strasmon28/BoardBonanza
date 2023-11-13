@@ -48,6 +48,7 @@ function UpdateBoardModal({ board }) {
   return (
     <div className="update-board-modal">
       <form className="update-board-form" onSubmit={handleUpdate}>
+        <h3 className="update-board-title">Update Board</h3>
         <div className="update-board-title-container">
         <p>Theme</p>
         {errors && <p className="error-message">{errors.selection}</p>}
@@ -78,7 +79,7 @@ function UpdateBoardModal({ board }) {
           onChange={(e) => setTitle(e.target.value)}
         />
         </div>
-        <button className="confirm-update-board-button" type="submit">Update Board</button>
+        <button className="confirm-update-board-button" type="submit">Update</button>
       </form>
     </div>
   );

@@ -35,7 +35,7 @@ function BoardDetail() {
     }
 
     return (
-        <div className={theme}>
+        <div className={"color-" + theme}>
           <div className="board-title-container">
             <h1 className="board-title">{board.title}</h1>
 

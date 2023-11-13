@@ -13,7 +13,7 @@ function Navigation({ isLoaded }){
 			<div className="navbar-options">
 				<div className="home-logo-container">
 					<NavLink className="home-logo" exact to="/">
-						<img className="logo" src={logo}/>
+						<img className="logo" src={logo} alt="site logo"/>
 					</NavLink>
 				</div>
 				{sessionUser && (
