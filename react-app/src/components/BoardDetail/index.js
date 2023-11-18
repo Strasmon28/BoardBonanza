@@ -19,6 +19,7 @@ function BoardDetail() {
     const boardId = parseInt(params.id) // Turns params string into number
     const board = useSelector((state) => state.boardsState.singleBoard)
     const lists = useSelector((state) => Object.values(state.listsState.lists))
+    // const cards = useSelector((state) => Object.values(state.cardsState.cards))
 
     // const [theme, setTheme] = useState(board?.theme);
     const theme = board?.theme
@@ -81,9 +82,16 @@ function BoardDetail() {
                     modalComponent={<DeleteListModal listId={list.id}  />}
                   />
                   </div>
-                  </div>
+                </div>
+
+                <div className="cards-container">
+                  {/* {cards && cards.map((card) => (
+                    
+                  ))} */}
+                </div>
                 {/* <button>+ Create a card (WIP)</button> */}
               </div>
+
             ))}
 
             <OpenModalButton
