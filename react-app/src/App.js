@@ -8,6 +8,7 @@ import Dashboard from "./components/Dashboard";
 import BoardDetail from "./components/BoardDetail";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,9 +33,9 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer />
     </>
   );
 }
 
 export default App;
-

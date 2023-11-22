@@ -11,7 +11,7 @@ function Dashboard() {
     // useSelector of boards state, should return an array
     // const [showMenu, setShowMenu] = useState(false);
     const boards = useSelector((state) => Object.values(state.boardsState.boards))
-    console.log("******the boards", boards)
+    // console.log("******the boards", boards)
 
     useEffect(() => {
         dispatch(getAllBoardsThunk())
@@ -20,7 +20,7 @@ function Dashboard() {
     // const closeMenu = () => setShowMenu(false);
 
     return (
-        <>
+        <div className="dashboard-container">
             <h1 className="dashboard-title">My Dashboard</h1>
             <h3 className="dashboard-subtitle">Create a new board or select an existing board</h3>
             {/* <button>+ Create a Board</button> */}
@@ -47,7 +47,7 @@ function Dashboard() {
             ))}
             </div>
 
-        </>
+        </div>
     )
 }
 

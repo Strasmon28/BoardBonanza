@@ -1,3 +1,7 @@
+.dashboard-container {
+    height: 80vh;
+}
+
 .dashboard-title {
     font-family: Tahoma, sans-serif;
     margin-left: 30px;
