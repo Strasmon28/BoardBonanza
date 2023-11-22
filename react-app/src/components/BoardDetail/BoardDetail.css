@@ -17,17 +17,17 @@
 
 .color-orange {
     background: linear-gradient(#ff7300, yellow);
-    height: 850px;
+    height: 100vh;
 }
 
 .color-storm {
     background: linear-gradient(#005dff, #181818);
-    height: 850px;
+    height: 100vh;
 }
 
 .color-grass {
     background: linear-gradient(#00cf00, lime, white);
-    height: 850px;
+    height: 100vh;
 }
 
 .orange {
