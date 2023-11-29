@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
-import { createCardThunk } from "../../store/cards";
-import "./CreatecardModal.css"
+import { updateCardThunk } from "../../store/cards";
+import "./UpdatecardModal.css"
 
-function CreateCardModal({ boardId, listId }) {
+function UpdateCardModal({ boardId, cardId }) {
   const dispatch = useDispatch();
 
   // const [user_id, setUser_id] = useState(0)
@@ -39,7 +39,7 @@ function CreateCardModal({ boardId, listId }) {
       board_id
     };
 
-    dispatch(createCardThunk(cardData, listId));
+    dispatch(updateCardThunk(cardData, cardId));
     closeModal();
 
   };
@@ -47,7 +47,7 @@ function CreateCardModal({ boardId, listId }) {
   return (
     <div className="card-form-modal">
       <form className="card-form" onSubmit={handleSubmit}>
-      <h3 className="create-card-title">Create card</h3>
+      <h3 className="update-card-title">Update card</h3>
         <div className="card-form-descrption-container">
         <p>Descrption</p>
         {errors && <p className="error-message">{errors.selection}</p>}
@@ -67,10 +67,10 @@ function CreateCardModal({ boardId, listId }) {
           onChange={(e) => setTitle(e.target.value)}
         />
         </div>
-        <button className="card-form-button" type="submit">Create</button>
+        <button className="card-form-button" type="submit">Update</button>
       </form>
     </div>
   );
 }
 
-export default CreateCardModal;
+export default UpdateCardModal;

@@ -42,7 +42,7 @@ export const getAllCardsThunk = (boardId) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json()
-        dispatch(readLists(data))  // Sends back all lists to action creator
+        dispatch(readCards(data))  // Sends back all lists to action creator
     } else {
         return "Response Error"
     }
