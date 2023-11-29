@@ -21,7 +21,7 @@ class List(db.Model):
     board = db.relationship("Board", back_populates="lists")
 
     # One list has many cards
-    # cards = db.relationship("Card", back_populates="list", cascade="all, delete, delete-orphan")
+    cards = db.relationship("Card", back_populates="list", cascade="all, delete, delete-orphan")
 
     def to_dict(self):
         return {

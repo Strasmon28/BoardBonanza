@@ -10,6 +10,7 @@ class Card(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
+    board_id = db.Column(db.Integer, nullable=False)
     list_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('lists.id')), nullable=False) # ForeignKey
     title = db.Column(db.String(50), nullable=False)
     description = db.Column(db.String(200), nullable=True)
