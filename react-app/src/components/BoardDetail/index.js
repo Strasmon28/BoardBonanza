@@ -41,6 +41,10 @@ function BoardDetail() {
     return <h1>Board not found</h1>;
   }
 
+  if (cards === undefined || cards.length === 0){
+    return <h1>Loading</h1>
+  }
+
   return (
     <div className={"color-" + theme}>
       <div className="board-title-container">
@@ -95,6 +99,8 @@ function BoardDetail() {
                 {cards &&
                   cards.map((card) => (
                     <div>
+                      <h5>{card.title}</h5>
+                      <p>{card.description}</p>
                       <OpenModalButton
                         buttonText="Edit"
                         //   onItemClick={closeMenu}

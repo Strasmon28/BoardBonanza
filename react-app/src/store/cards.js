@@ -7,7 +7,7 @@ const DELETE_CARD = "cards/DELETE_CARD"
 // Action Creators ------------------------
 const readCards = (allCards) => ({
     type: READ_CARDS,
-    allcards
+    allCards
 })
 
 // const readOnecard = (onecard) => ({
@@ -36,7 +36,7 @@ const deleteCard = (cardId) => ({
 // Gets all cards belonging to a specific board
 // Send a boardId to get request
 export const getAllCardsThunk = (boardId) => async (dispatch) => {
-    const response = await fetch(`/api/lists/all/${boardId}`, {
+    const response = await fetch(`/api/cards/all/${boardId}`, {
         method: 'GET'
     })
 
@@ -106,7 +106,7 @@ export default function cardsReducer(state = initialState, action) {
     switch (action.type) {
         case READ_CARDS:
             newState = { ...state, cards: {} }
-            action.allcards.cards.forEach(card => {
+            action.allCards.cards.forEach(card => {
                 newState.cards[card.id] = card
             });
             return newState;

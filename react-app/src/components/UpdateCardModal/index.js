@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { updateCardThunk } from "../../store/cards";
-import "./UpdatecardModal.css"
+import "./UpdateCardModal.css"
 
 function UpdateCardModal({ boardId, cardId }) {
   const dispatch = useDispatch();
