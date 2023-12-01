@@ -4,7 +4,7 @@ import { useModal } from "../../context/Modal";
 import { updateCardThunk } from "../../store/cards";
 import "./UpdateCardModal.css"
 
-function UpdateCardModal({ boardId, cardId }) {
+function UpdateCardModal({ cardId }) {
   const dispatch = useDispatch();
 
   // const [user_id, setUser_id] = useState(0)
@@ -31,12 +31,10 @@ function UpdateCardModal({ boardId, cardId }) {
       return;
     }
 
-    const board_id = boardId;
 
     const cardData = {
       title,
       description,
-      board_id
     };
 
     dispatch(updateCardThunk(cardData, cardId));
