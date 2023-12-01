@@ -97,8 +97,8 @@ function BoardDetail() {
               {/* CARDS WITHIN THE LIST */}
               <div className="cards-container">
                 {cards &&
-                  cards.map((card) => (
-                    <div>
+                  cards.filter((card) => (card.list_id === list.id)).map((card) => (
+                    <div key={card.id}>
                       <h5>{card.title}</h5>
                       <p>{card.description}</p>
                       <OpenModalButton

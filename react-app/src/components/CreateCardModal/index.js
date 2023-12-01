@@ -9,7 +9,7 @@ function CreateCardModal({ boardId, listId }) {
 
   // const [user_id, setUser_id] = useState(0)
   const [title, setTitle] = useState("");
-  const [descrption, setDescrption] = useState("");
+  const [description, setDescription] = useState("");
   const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
 
@@ -23,7 +23,7 @@ function CreateCardModal({ boardId, listId }) {
     }
 
     // if (selection === 0){
-    //   newErrors.selection = "A descrption is required";
+    //   newErrors.selection = "A description is required";
     // }
 
     if(Object.keys(newErrors).length > 0) {
@@ -35,7 +35,7 @@ function CreateCardModal({ boardId, listId }) {
 
     const cardData = {
       title,
-      descrption,
+      description,
       board_id
     };
 
@@ -48,13 +48,13 @@ function CreateCardModal({ boardId, listId }) {
     <div className="card-form-modal">
       <form className="card-form" onSubmit={handleSubmit}>
       <h3 className="create-card-title">Create card</h3>
-        <div className="card-form-descrption-container">
-        <p>Descrption</p>
+        <div className="card-form-description-container">
+        <p>Description</p>
         {errors && <p className="error-message">{errors.selection}</p>}
         <input
           type="text"
-          value={descrption}
-          onChange={(e) => setDescrption(e.target.value)}
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
         />
         </div>
 
