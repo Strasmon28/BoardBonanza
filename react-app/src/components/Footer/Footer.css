@@ -1,0 +1,12 @@
+.footer {
+    font-family: Tahoma, sans-serif;
+    display: flex;
+    background-color: #e9e9e9;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.creator-link {
+    text-decoration: none;
+    color: black;
+}
