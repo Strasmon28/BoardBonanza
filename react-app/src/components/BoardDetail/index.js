@@ -98,14 +98,15 @@ function BoardDetail() {
               <div className="cards-container">
                 {cards &&
                   cards.filter((card) => (card.list_id === list.id)).map((card) => (
-                    <div key={card.id}>
-                      <h5>{card.title}</h5>
-                      <p>{card.description}</p>
+                    <div key={card.id} className="single-card">
+                      <div className="card-title-buttons">
+                      <h4>{card.title}</h4>
+                      <div className="card-buttons-container">
                       <OpenModalButton
                         buttonText="Edit"
                         //   onItemClick={closeMenu}
                         buttonClassName="details-card-button"
-                        modalComponent={<UpdateCardModal cardId={card.id} />}
+                        modalComponent={<UpdateCardModal boardId={board.id} cardId={card.id} />}
                       />
                       <OpenModalButton
                         buttonText="Delete"
@@ -113,6 +114,9 @@ function BoardDetail() {
                         buttonClassName="details-card-button"
                         modalComponent={<DeleteCardModal cardId={card.id} />}
                       />
+                      </div>
+                      </div>
+                      <p>{card.description}</p>
                     </div>
                   ))}
                 <OpenModalButton
