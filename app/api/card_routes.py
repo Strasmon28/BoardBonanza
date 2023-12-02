@@ -44,7 +44,7 @@ def update_one_card(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         updated_card = Card.query.get(id)
-
+        updated_card.board_id=form.data['board_id']
         updated_card.title=form.data['title']
         updated_card.description=form.data['description']
 
