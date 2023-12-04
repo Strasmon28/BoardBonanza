@@ -137,7 +137,6 @@ function BoardDetail() {
         />
       </div>
 
-      {/* <button>+ Create List</button> */}
     </div>
   );
 }
