@@ -89,6 +89,7 @@
     border: solid white;
     border-radius: 20px;
     background: white;
+    height: fit-content;
     margin: 10px;
     padding: 15px;
     box-shadow: 2px 2px 2px 2px #292929;
@@ -136,8 +137,14 @@
 }
 
 /* CARDS CSS */
+.cards-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .single-card {
     border: solid 2px black;
+    font-family: "Tahoma", sans-serif;
     border-radius: 10px;
     padding: 0px 10px;
 }

@@ -47,6 +47,16 @@ function UpdateCardModal({ boardId, cardId }) {
     <div className="card-form-modal">
       <form className="card-form" onSubmit={handleSubmit}>
       <h3 className="update-card-title">Update card</h3>
+      <div className="card-form-title-container">
+        <p>Title</p>
+        {errors && <p className="error-message">{errors.title}</p>}
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        </div>
+
         <div className="card-form-description-container">
         <p>Description</p>
         {errors && <p className="error-message">{errors.selection}</p>}
@@ -57,15 +67,6 @@ function UpdateCardModal({ boardId, cardId }) {
         />
         </div>
 
-        <div className="card-form-title-container">
-        <p>Title</p>
-        {errors && <p className="error-message">{errors.title}</p>}
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        </div>
         <button className="card-form-button" type="submit">Update</button>
       </form>
     </div>
