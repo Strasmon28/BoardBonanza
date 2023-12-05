@@ -21,9 +21,6 @@ class Label(db.Model):
     # Many labels belong to one card
     card = db.relationship("Card", back_populates="labels")
 
-    # One card can have many labels
-    # card = db.relationship("Label", back_populates="labels", cascade="all, delete, delete-orphan")
-
     def to_dict(self):
         return {
             'id': self.id,
