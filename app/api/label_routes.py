@@ -25,8 +25,8 @@ def new_label(listId):
         label = Label(
             board_id=form.data['board_id'],
             list_id=listId,
-            title=form.data['title'],
-            description=form.data['description']
+            color=form.data['color'],
+            comment=form.data['comment']
         )
 
         db.session.add(label)
@@ -45,8 +45,8 @@ def update_one_label(id):
     if form.validate_on_submit():
         updated_label = Label.query.get(id)
         updated_label.board_id=form.data['board_id']
-        updated_label.title=form.data['title']
-        updated_label.description=form.data['description']
+        updated_label.color=form.data['color']
+        updated_label.comment=form.data['comment']
 
         db.session.commit()
 
