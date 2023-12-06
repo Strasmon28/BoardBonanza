@@ -5,9 +5,9 @@ const UPDATE_LABEL = "labels/UPDATE_LABEL"
 const DELETE_LABEL = "labels/DELETE_LABEL"
 
 // Action Creators ------------------------
-const readCards = (allCards) => ({
+const readLabels = (allLabels) => ({
     type: READ_LABELS,
-    allCards
+    allLabels
 })
 
 // const readOnelabel = (onelabel) => ({
@@ -15,18 +15,18 @@ const readCards = (allCards) => ({
 //     onelabel
 // })
 
-const addCard = (labelData) => ({
+const addLabel = (labelData) => ({
     type: ADD_LABEL,
     labelData
 })
 
-const updateCard = (labelData, labelId) => ({
+const updateLabel = (labelData, labelId) => ({
     type: UPDATE_LABEL,
     labelData,
     labelId
 })
 
-const deleteCard = (labelId) => ({
+const deleteLabel = (labelId) => ({
     type: DELETE_LABEL,
     labelId
 })
@@ -35,14 +35,14 @@ const deleteCard = (labelId) => ({
 
 // Gets all labels belonging to a specific board
 // Send a boardId to get request
-export const getAllCardsThunk = (boardId) => async (dispatch) => {
+export const getAllLabelsThunk = (boardId) => async (dispatch) => {
     const response = await fetch(`/api/labels/all/${boardId}`, {
         method: 'GET'
     })
 
     if (response.ok) {
         const data = await response.json()
-        dispatch(readCards(data))  // Sends back all lists to action creator
+        dispatch(readLabels(data))  // Sends back all lists to action creator
     } else {
         return "Response Error"
     }
@@ -50,7 +50,7 @@ export const getAllCardsThunk = (boardId) => async (dispatch) => {
 
 // Create a new label
 // Send boardId to add to new label board_id
-export const createCardThunk = (labelData, listId) => async (dispatch) => {
+export const createLabelThunk = (labelData, listId) => async (dispatch) => {
     const response = await fetch(`/api/labels/new/${listId}`, {
         method: 'POST',
         headers: {
@@ -61,14 +61,14 @@ export const createCardThunk = (labelData, listId) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json()
-        dispatch(addCard(data))    // Sends back one label to action creator
+        dispatch(addLabel(data))    // Sends back one label to action creator
     } else {
         return "Response Error"
     }
 }
 
 // Update an existing label
-export const updateCardThunk = (labelData, labelId) => async (dispatch) => {
+export const updateLabelThunk = (labelData, labelId) => async (dispatch) => {
     const response = await fetch(`/api/labels/update/${labelId}`, {
         method: 'PUT',
         headers: {
@@ -79,20 +79,20 @@ export const updateCardThunk = (labelData, labelId) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json()
-        dispatch(updateCard(data, labelId))    // Sends back one label to action creator
+        dispatch(updateLabel(data, labelId))    // Sends back one label to action creator
     } else {
         return "Response Error"
     }
 }
 
 // Delete a label
-export const deleteCardThunk = (labelId) => async (dispatch) => {
+export const deleteLabelThunk = (labelId) => async (dispatch) => {
     const response = await fetch(`/api/labels/delete/${labelId}`, {
         method: 'DELETE'
     })
 
     if (response.ok) {
-        dispatch(deleteCard(labelId))    // Sends back one label to action creator
+        dispatch(deleteLabel(labelId))    // Sends back one label to action creator
         return "Deleted"
     } else {
         return "Response Error"
@@ -106,7 +106,7 @@ export default function labelsReducer(state = initialState, action) {
     switch (action.type) {
         case READ_LABELS:
             newState = { ...state, labels: {} }
-            action.allCards.labels.forEach(label => {
+            action.allLabels.labels.forEach(label => {
                 newState.labels[label.id] = label
             });
             return newState;

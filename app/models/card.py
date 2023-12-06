@@ -22,7 +22,7 @@ class Card(db.Model):
     list = db.relationship("List", back_populates="cards")
 
     # One card can have many labels
-    labels = db.relationship("Label", back_populates="labels", cascade="all, delete, delete-orphan")
+    labels = db.relationship("Label", back_populates="card", cascade="all, delete, delete-orphan")
 
     def to_dict(self):
         return {

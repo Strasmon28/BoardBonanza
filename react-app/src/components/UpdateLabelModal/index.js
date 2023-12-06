@@ -67,8 +67,8 @@ function UpdateLabelModal({ boardId }) {
           <div className={selection === 2 ? "yellow-select chosen" : "yellow-select"} onClick={() => selectColor("yellow", 2)}>
           </div>
 
-          {/* <div className={selection === 3 ? "green-select chosen" : "green-select"} onClick={() => selectColor("green", 3)}>
-          </div> */}
+          <div className={selection === 3 ? "green-select chosen" : "green-select"} onClick={() => selectColor("green", 3)}>
+          </div>
 
         </div>
         </div>
