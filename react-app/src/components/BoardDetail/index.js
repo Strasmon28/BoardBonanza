@@ -11,8 +11,6 @@ import UpdateListModal from "../UpdateListModal";
 import CreateCardModal from "../CreateCardModal";
 import UpdateCardModal from "../UpdateCardModal";
 import DeleteCardModal from "../DeleteCardModal";
-import CreateLabelModal from "../CreateLabelModal";
-import UpdateLabelModal from "../UpdateLabelModal";
 
 import { getAllListsThunk } from "../../store/lists";
 import "./BoardDetail.css";
@@ -20,6 +18,7 @@ import DeleteListModal from "../DeleteListModal";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import { getAllCardsThunk } from "../../store/cards";
 import { getAllLabelsThunk } from "../../store/labels";
+import CardDetailModal from "../CardDetailModal";
 
 function BoardDetail() {
   const dispatch = useDispatch();
@@ -28,17 +27,18 @@ function BoardDetail() {
   const board = useSelector((state) => state.boardsState.singleBoard);
   const lists = useSelector((state) => Object.values(state.listsState.lists));
   const cards = useSelector((state) => Object.values(state.cardsState.cards));
-  const labels = useSelector((state) => Object.values(state.labelsStore.labels));
-  console.log("****** the cards", cards);
+  const labels = useSelector((state) => Object.values(state.labelsState.labels));
+  console.log("****** the labels", labels);
   // const [theme, setTheme] = useState(board?.theme);
   const theme = board?.theme;
-  // console.log("****** the board", board)
+  console.log("****** the cards", cards)
   // console.log("****** the lists", lists)
 
   useEffect(() => {
     dispatch(getOneBoardThunk(boardId));
     dispatch(getAllListsThunk(boardId));
     dispatch(getAllCardsThunk(boardId));
+    dispatch(getAllLabelsThunk(boardId));
   }, [dispatch]);
 
   if (board === undefined || Object.keys(board).length === 0) {
@@ -106,6 +106,17 @@ function BoardDetail() {
                     .filter((card) => card.list_id === list.id)
                     .map((card) => (
                       <div key={card.id} className="single-card">
+                        <div className="label-details">
+                        {labels.filter((label) => label.card_id === card.id).map((label) => (<p key={label.id}>{label.color}</p>))[0]}
+                        <OpenModalButton
+                          buttonText="Details"
+                          //   onItemClick={closeMenu}
+                          buttonClassName="details-card-button"
+                          modalComponent={
+                            <CardDetailModal cardTitle={card.title} cardDescription={card.description} />
+                          }
+                          />
+                          </div>
                         <div className="card-title-buttons">
                           <h4>{card.title}</h4>
                           <div className="card-buttons-container">
