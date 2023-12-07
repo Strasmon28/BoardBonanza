@@ -11,11 +11,14 @@ import UpdateListModal from "../UpdateListModal";
 import CreateCardModal from "../CreateCardModal";
 import UpdateCardModal from "../UpdateCardModal";
 import DeleteCardModal from "../DeleteCardModal";
+
 import { getAllListsThunk } from "../../store/lists";
 import "./BoardDetail.css";
 import DeleteListModal from "../DeleteListModal";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import { getAllCardsThunk } from "../../store/cards";
+import { getAllLabelsThunk } from "../../store/labels";
+import CardDetailModal from "../CardDetailModal";
 
 function BoardDetail() {
   const dispatch = useDispatch();
@@ -24,25 +27,28 @@ function BoardDetail() {
   const board = useSelector((state) => state.boardsState.singleBoard);
   const lists = useSelector((state) => Object.values(state.listsState.lists));
   const cards = useSelector((state) => Object.values(state.cardsState.cards));
-  console.log("****** the cards", cards);
+  const labels = useSelector((state) => Object.values(state.labelsState.labels));
+  console.log("****** the labels", labels);
   // const [theme, setTheme] = useState(board?.theme);
   const theme = board?.theme;
-  // console.log("****** the board", board)
+  console.log("****** the cards", cards)
   // console.log("****** the lists", lists)
 
   useEffect(() => {
     dispatch(getOneBoardThunk(boardId));
     dispatch(getAllListsThunk(boardId));
     dispatch(getAllCardsThunk(boardId));
+    dispatch(getAllLabelsThunk(boardId));
   }, [dispatch]);
 
+  // console.log("FILTERED", labels.filter((label) => label.card_id === 2)[0].color)
   if (board === undefined || Object.keys(board).length === 0) {
     // Temp fix
     return <h1>Board not found</h1>;
   }
 
-  if (cards === undefined || cards.length === 0){
-    return <h1>Loading</h1>
+  if (cards === undefined || cards.length === 0 || labels === undefined || labels.length === 0) {
+    return <h1>Loading</h1>;
   }
 
   return (
@@ -97,33 +103,55 @@ function BoardDetail() {
               {/* CARDS WITHIN THE LIST */}
               <div className="cards-container">
                 {cards &&
-                  cards.filter((card) => (card.list_id === list.id)).map((card) => (
-                    <div key={card.id} className="single-card">
-                      <div className="card-title-buttons">
-                      <h4>{card.title}</h4>
-                      <div className="card-buttons-container">
-                      <OpenModalButton
-                        buttonText="Edit"
-                        //   onItemClick={closeMenu}
-                        buttonClassName="details-card-button"
-                        modalComponent={<UpdateCardModal boardId={board.id} cardId={card.id} />}
-                      />
-                      <OpenModalButton
-                        buttonText="Delete"
-                        //   onItemClick={closeMenu}
-                        buttonClassName="details-card-button"
-                        modalComponent={<DeleteCardModal cardId={card.id} />}
-                      />
+                  cards
+                    .filter((card) => card.list_id === list.id)
+                    .map((card) => (
+                      <div key={card.id} className="single-card">
+                        <div className="label-details">
+                        {labels.filter((label) => label.card_id === card.id).length == 0 ? labels.filter((label) => label.card_id === card.id).map((label) => (<p key={label.id}>{label.color}</p>))[0] : <button>create</button>}
+                        {/* <OpenModalButton
+                          buttonText="Details"
+                          //   onItemClick={closeMenu}
+                          buttonClassName="details-card-button"
+                          modalComponent={
+                            <CardDetailModal cardTitle={card.title} cardDescription={card.description} />
+                          }
+                          /> */}
+                          </div>
+                        <div className="card-title-buttons">
+                          <h4>{card.title}</h4>
+                          <div className="card-buttons-container">
+                            <OpenModalButton
+                              buttonText="Edit"
+                              //   onItemClick={closeMenu}
+                              buttonClassName="details-card-button"
+                              modalComponent={
+                                <UpdateCardModal
+                                  boardId={board.id}
+                                  cardId={card.id}
+                                />
+                              }
+                            />
+                            <OpenModalButton
+                              buttonText="Delete"
+                              //   onItemClick={closeMenu}
+                              buttonClassName="details-card-button"
+                              modalComponent={
+                                <DeleteCardModal cardId={card.id} />
+                              }
+                            />
+                          </div>
+                        </div>
+                        <p>{card.description}</p>
                       </div>
-                      </div>
-                      <p>{card.description}</p>
-                    </div>
-                  ))}
+                    ))}
                 <OpenModalButton
                   buttonText="Create Card"
                   //   onItemClick={closeMenu}
                   buttonClassName="details-card-button"
-                  modalComponent={<CreateCardModal boardId={boardId} listId={list.id} />}
+                  modalComponent={
+                    <CreateCardModal boardId={boardId} listId={list.id} />
+                  }
                 />
               </div>
             </div>
@@ -136,7 +164,6 @@ function BoardDetail() {
           modalComponent={<CreateListModal boardId={boardId} />}
         />
       </div>
-
     </div>
   );
 }
