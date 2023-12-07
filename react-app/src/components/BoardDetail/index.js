@@ -41,12 +41,13 @@ function BoardDetail() {
     dispatch(getAllLabelsThunk(boardId));
   }, [dispatch]);
 
+  // console.log("FILTERED", labels.filter((label) => label.card_id === 2)[0].color)
   if (board === undefined || Object.keys(board).length === 0) {
     // Temp fix
     return <h1>Board not found</h1>;
   }
 
-  if (cards === undefined || cards.length === 0) {
+  if (cards === undefined || cards.length === 0 || labels === undefined || labels.length === 0) {
     return <h1>Loading</h1>;
   }
 
@@ -107,15 +108,15 @@ function BoardDetail() {
                     .map((card) => (
                       <div key={card.id} className="single-card">
                         <div className="label-details">
-                        {labels.filter((label) => label.card_id === card.id).map((label) => (<p key={label.id}>{label.color}</p>))[0]}
-                        <OpenModalButton
+                        {labels.filter((label) => label.card_id === card.id).length == 0 ? labels.filter((label) => label.card_id === card.id).map((label) => (<p key={label.id}>{label.color}</p>))[0] : <button>create</button>}
+                        {/* <OpenModalButton
                           buttonText="Details"
                           //   onItemClick={closeMenu}
                           buttonClassName="details-card-button"
                           modalComponent={
                             <CardDetailModal cardTitle={card.title} cardDescription={card.description} />
                           }
-                          />
+                          /> */}
                           </div>
                         <div className="card-title-buttons">
                           <h4>{card.title}</h4>
