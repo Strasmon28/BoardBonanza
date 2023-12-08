@@ -69,8 +69,11 @@
 .create-list-button {
     font-family: Tahoma, sans-serif;
     cursor: pointer;
-    margin: 10px;
+    /* margin: 10px; */
+    margin-top: 10px;
+    margin-left: 10px;
     height: 50px;
+    width: 95%;
     align-self: center;
     border-radius: 30px;
 }
@@ -136,7 +139,26 @@
     background-color: rgb(182, 182, 182);
 }
 
+.details-card-button:hover {
+    background-color: rgb(182, 182, 182);
+}
+
 /* CARDS CSS */
+.new-card-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: "Tahoma", sans-serif;
+}
+
+.new-card-button:hover {
+    background: lightgray;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: "Tahoma", sans-serif;
+}
+
 .cards-container {
     display: flex;
     flex-direction: column;
@@ -147,6 +169,7 @@
     font-family: "Tahoma", sans-serif;
     border-radius: 10px;
     padding: 0px 10px;
+    margin-bottom: 10px;
 }
 
 .card-title-buttons {
@@ -163,4 +186,49 @@
     border: solid 1px black;
     border-radius: 20px;
     background-color: white;
+}
+
+/* LABELS */
+.label-container {
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+
+.label-buttons {
+    display: flex;
+    width: 55px;
+    flex-direction: column;
+}
+
+.label-buttons button{
+    font-family: Tahoma, sans-serif;
+    cursor: pointer;
+    background-color: none;
+    border: none;
+    border: solid 1px black;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.label-color.red {
+    background-color: red;
+    height: 10px;
+    width: 50%;
+    border-radius: 20px;
+}
+
+.label-color.yellow {
+    background-color: yellow;
+    height: 10px;
+    width: 50%;
+    border-radius: 20px;
+}
+
+
+.label-color.green {
+    background-color: green;
+    height: 10px;
+    width: 50%;
+    border-radius: 20px;
 }

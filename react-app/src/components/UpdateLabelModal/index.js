@@ -4,7 +4,7 @@ import { useModal } from "../../context/Modal";
 import { updateLabelThunk } from "../../store/labels";
 import "./UpdateLabelModal.css"
 
-function UpdateLabelModal({ boardId }) {
+function UpdateLabelModal({ boardId, labelId }) {
   const dispatch = useDispatch();
 
   // const [user_id, setUser_id] = useState(0)
@@ -19,6 +19,8 @@ function UpdateLabelModal({ boardId }) {
 
     const newErrors = {}
 
+    setComment("Placeholder")
+
     if (comment === ""){
       newErrors.comment = "A comment is required";
     }
@@ -32,12 +34,15 @@ function UpdateLabelModal({ boardId }) {
       return;
     }
 
+    const board_id = boardId;
+
     const labelData = {
       comment,
+      board_id,
       color
     };
 
-    dispatch(updateLabelThunk(labelData, boardId));
+    dispatch(updateLabelThunk(labelData, labelId));
     closeModal();
 
   };
@@ -50,7 +55,7 @@ function UpdateLabelModal({ boardId }) {
   return (
     <div className="label-form-modal">
       <form className="label-form" onSubmit={handleSubmit}>
-      <h3 className="update-label-comment">Update Label</h3>
+      <h3 className="update-label-title">Update Label</h3>
         <div className="label-form-color-container">
         <p>Color</p>
         {errors && <p className="error-message">{errors.selection}</p>}
@@ -73,7 +78,7 @@ function UpdateLabelModal({ boardId }) {
         </div>
         </div>
 
-        <div className="label-form-comment-container">
+        {/* <div className="label-form-comment-container">
         <p>Comment</p>
         {errors && <p className="error-message">{errors.comment}</p>}
         <input
@@ -81,7 +86,8 @@ function UpdateLabelModal({ boardId }) {
           value={comment}
           onChange={(e) => setComment(e.target.value)}
         />
-        </div>
+        </div> */}
+
         <button className="label-form-button" type="submit">Update</button>
       </form>
     </div>
