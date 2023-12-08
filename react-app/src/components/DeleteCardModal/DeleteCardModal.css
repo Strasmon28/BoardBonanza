@@ -1,0 +1,38 @@
+.delete-card-modal {
+    display: flex;
+    font-family: "Tahoma", sans-serif;
+    flex-direction: column;
+}
+
+.delete-card-buttons-container {
+    align-self: center;
+}
+
+.delete-card-button {
+    margin-top: 20px;
+    /* margin-left: 120px; */
+    margin-bottom: 20px;
+    align-self: center;
+    width: 145px;
+    font-family: Tahoma, sans-serif;
+    cursor: pointer;
+    background-color: none;
+    border: none;
+    border: solid 1px black;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.delete-card-button:hover {
+    margin-top: 20px;
+    /* margin-left: 120px; */
+    margin-bottom: 20px;
+    align-self: center;
+    width: 145px;
+    font-family: Tahoma, sans-serif;
+    cursor: pointer;
+    background-color: lightgray;
+    border: none;
+    border: solid 1px black;
+    border-radius: 20px;
+}

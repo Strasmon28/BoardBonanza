@@ -142,7 +142,7 @@ function BoardDetail() {
                         <OpenModalButton
                         buttonText="Create Label"
                         //   onItemClick={closeMenu}
-                        buttonClassName="details-card-button"
+                        buttonClassName="details-card-label-button"
                         modalComponent={
                           <CreateLabelModal
                             boardId={board.id}

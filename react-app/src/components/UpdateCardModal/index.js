@@ -67,7 +67,7 @@ function UpdateCardModal({ boardId, cardId }) {
         />
         </div>
 
-        <button className="card-form-button" type="submit">Update</button>
+        <button className="update-card-form-button" type="submit">Update</button>
       </form>
     </div>
   );

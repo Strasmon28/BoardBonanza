@@ -232,3 +232,14 @@
     width: 50%;
     border-radius: 20px;
 }
+
+.details-card-label-button {
+    font-family: Tahoma, sans-serif;
+    cursor: pointer;
+    background-color: none;
+    border: none;
+    margin-top: 10px;
+    border: solid 1px black;
+    border-radius: 20px;
+    background-color: white;
+}
