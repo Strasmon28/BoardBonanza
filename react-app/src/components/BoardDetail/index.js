@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useEffect } from "react";
+// import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getOneBoardThunk } from "../../store/boards";
 import { useParams } from "react-router-dom";
@@ -11,14 +11,16 @@ import UpdateListModal from "../UpdateListModal";
 import CreateCardModal from "../CreateCardModal";
 import UpdateCardModal from "../UpdateCardModal";
 import DeleteCardModal from "../DeleteCardModal";
-
+import CreateLabelModal from "../CreateLabelModal";
+import UpdateLabelModal from "../UpdateLabelModal";
 import { getAllListsThunk } from "../../store/lists";
 import "./BoardDetail.css";
 import DeleteListModal from "../DeleteListModal";
-import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+// import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import { getAllCardsThunk } from "../../store/cards";
 import { getAllLabelsThunk } from "../../store/labels";
-import CardDetailModal from "../CardDetailModal";
+// import CardDetailModal from "../CardDetailModal";
+import DeleteLabelModal from "../DeleteLabelModal";
 
 function BoardDetail() {
   const dispatch = useDispatch();
@@ -47,9 +49,9 @@ function BoardDetail() {
     return <h1>Board not found</h1>;
   }
 
-  if (cards === undefined || cards.length === 0 || labels === undefined || labels.length === 0) {
-    return <h1>Loading</h1>;
-  }
+  // if (cards === undefined || cards.length === 0) {
+  //   return <h1>Loading</h1>;
+  // }
 
   return (
     <div className={"color-" + theme}>
@@ -108,7 +110,47 @@ function BoardDetail() {
                     .map((card) => (
                       <div key={card.id} className="single-card">
                         <div className="label-details">
-                        {labels.filter((label) => label.card_id === card.id).length == 0 ? labels.filter((label) => label.card_id === card.id).map((label) => (<p key={label.id}>{label.color}</p>))[0] : <button>create</button>}
+                        {labels.filter((label) => label.card_id === card.id).length > 0 ? labels.filter((label) => label.card_id === card.id).map((label) => (
+                        <div key={label.id} className="label-container">
+                        <p className={"label-color" + ` ${label.color}`}></p>
+                        <div className="label-buttons">
+                        <OpenModalButton
+                        buttonText="Edit"
+                        //   onItemClick={closeMenu}
+                        buttonClassName="details-card-button"
+                        modalComponent={
+                          <UpdateLabelModal
+                            boardId={board.id}
+                            labelId={label.id}
+                          />
+                        }
+                        />
+                        <OpenModalButton
+                        buttonText="Delete"
+                        //   onItemClick={closeMenu}
+                        buttonClassName="details-card-button"
+                        modalComponent={
+                          <DeleteLabelModal
+                            labelId={label.id}
+                          />
+                        }
+                        />
+                        </div>
+                        </div>
+                        ))[0]
+                        :
+                        <OpenModalButton
+                        buttonText="Create Label"
+                        //   onItemClick={closeMenu}
+                        buttonClassName="details-card-button"
+                        modalComponent={
+                          <CreateLabelModal
+                            boardId={board.id}
+                            cardId={card.id}
+                          />
+                        }
+                        />
+                        }
                         {/* <OpenModalButton
                           buttonText="Details"
                           //   onItemClick={closeMenu}
@@ -146,9 +188,9 @@ function BoardDetail() {
                       </div>
                     ))}
                 <OpenModalButton
-                  buttonText="Create Card"
+                  buttonText="+ Create Card"
                   //   onItemClick={closeMenu}
-                  buttonClassName="details-card-button"
+                  buttonClassName="new-card-button"
                   modalComponent={
                     <CreateCardModal boardId={boardId} listId={list.id} />
                   }
@@ -156,13 +198,14 @@ function BoardDetail() {
               </div>
             </div>
           ))}
-
+        <div className="list-button-container">
         <OpenModalButton
           buttonText="+ Create List"
           //   onItemClick={closeMenu}
           buttonClassName="create-list-button"
           modalComponent={<CreateListModal boardId={boardId} />}
         />
+        </div>
       </div>
     </div>
   );

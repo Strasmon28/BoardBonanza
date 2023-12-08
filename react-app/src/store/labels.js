@@ -35,8 +35,8 @@ const deleteLabel = (labelId) => ({
 
 // Gets all labels belonging to a specific board
 // Send a boardId to get request
-export const getAllLabelsThunk = (boardId) => async (dispatch) => {
-    const response = await fetch(`/api/labels/all/${boardId}`, {
+export const getAllLabelsThunk = (cardId) => async (dispatch) => {
+    const response = await fetch(`/api/labels/all/${cardId}`, {
         method: 'GET'
     })
 

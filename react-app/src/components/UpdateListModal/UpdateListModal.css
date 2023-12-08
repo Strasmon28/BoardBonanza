@@ -68,7 +68,7 @@
     background-color: none;
     border: none;
     border: solid black;
-    border-radius: 20px;
+    border-radius: 5px;
     background-color: white;
 }
 
@@ -90,7 +90,7 @@
     cursor: pointer;
     background-color: none;
     border: none;
-    border: solid black;
+    border: solid 1px black;
     border-radius: 20px;
     background-color: white;
 }

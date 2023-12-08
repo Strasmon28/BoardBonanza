@@ -16,15 +16,15 @@ def all_labels(id):
     # return labels.to_dict()
 
 # Create a new label
-@label_routes.route("/new/<int:listId>", methods=['POST'])
-def new_label(listId):
+@label_routes.route("/new/<int:cardId>", methods=['POST'])
+def new_label(cardId):
     form = LabelForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         label = Label(
             board_id=form.data['board_id'],
-            list_id=listId,
+            card_id=cardId,
             color=form.data['color'],
             comment=form.data['comment']
         )
