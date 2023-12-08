@@ -1,0 +1,51 @@
+.card-form-modal {
+    width: 350px;
+}
+
+.card-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-family: "Tahoma", sans-serif;
+}
+
+.update-card-title {
+    align-self: center;
+}
+
+.card-form-title-container {
+    margin-left: 15px;
+}
+
+.card-form-title-container input{
+    margin-left: 15px;
+    border: solid black;
+    border-radius: 5px;
+}
+
+.card-form-description-container {
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+.card-form-description-container input{
+    margin-left: 15px;
+    border: solid black;
+    border-radius: 5px;
+}
+
+.update-card-form-button {
+    align-self: center;
+    margin-bottom: 10px;
+    background: none;
+    border: solid 1px black;
+    border-radius: 20px;
+}
+
+.update-card-form-button:hover {
+    align-self: center;
+    margin-bottom: 10px;
+    background: lightgray;
+    border: solid 1px black;
+    border-radius: 20px;
+}

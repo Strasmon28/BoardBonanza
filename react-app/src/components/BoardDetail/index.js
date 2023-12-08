@@ -30,11 +30,9 @@ function BoardDetail() {
   const lists = useSelector((state) => Object.values(state.listsState.lists));
   const cards = useSelector((state) => Object.values(state.cardsState.cards));
   const labels = useSelector((state) => Object.values(state.labelsState.labels));
-  console.log("****** the labels", labels);
-  // const [theme, setTheme] = useState(board?.theme);
+
   const theme = board?.theme;
-  console.log("****** the cards", cards)
-  // console.log("****** the lists", lists)
+
 
   useEffect(() => {
     dispatch(getOneBoardThunk(boardId));
@@ -43,7 +41,6 @@ function BoardDetail() {
     dispatch(getAllLabelsThunk(boardId));
   }, [dispatch]);
 
-  // console.log("FILTERED", labels.filter((label) => label.card_id === 2)[0].color)
   if (board === undefined || Object.keys(board).length === 0) {
     // Temp fix
     return <h1>Board not found</h1>;
@@ -142,7 +139,7 @@ function BoardDetail() {
                         <OpenModalButton
                         buttonText="Create Label"
                         //   onItemClick={closeMenu}
-                        buttonClassName="details-card-button"
+                        buttonClassName="details-card-label-button"
                         modalComponent={
                           <CreateLabelModal
                             boardId={board.id}
@@ -169,6 +166,7 @@ function BoardDetail() {
                               buttonClassName="details-card-button"
                               modalComponent={
                                 <UpdateCardModal
+                                  card={card}
                                   boardId={board.id}
                                   cardId={card.id}
                                 />

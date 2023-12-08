@@ -8,7 +8,7 @@ function CreateLabelModal({ boardId, cardId }) {
   const dispatch = useDispatch();
 
   // const [user_id, setUser_id] = useState(0)
-  const [comment, setComment] = useState("");
+  const [comment, setComment] = useState("Placeholder");
   const [color, setColor] = useState("");
   const [errors, setErrors] = useState({});
   const [selection, setSelection] = useState(0);
@@ -19,7 +19,7 @@ function CreateLabelModal({ boardId, cardId }) {
 
     const newErrors = {}
 
-    setComment("Placeholder")
+    // setComment("Placeholder")
 
     if (comment === ""){
       newErrors.comment = "A comment is required";
