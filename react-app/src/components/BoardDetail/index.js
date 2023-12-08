@@ -11,7 +11,8 @@ import UpdateListModal from "../UpdateListModal";
 import CreateCardModal from "../CreateCardModal";
 import UpdateCardModal from "../UpdateCardModal";
 import DeleteCardModal from "../DeleteCardModal";
-
+import CreateLabelModal from "../CreateLabelModal";
+import UpdateLabelModal from "../UpdateLabelModal";
 import { getAllListsThunk } from "../../store/lists";
 import "./BoardDetail.css";
 import DeleteListModal from "../DeleteListModal";
@@ -19,6 +20,7 @@ import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import { getAllCardsThunk } from "../../store/cards";
 import { getAllLabelsThunk } from "../../store/labels";
 import CardDetailModal from "../CardDetailModal";
+import DeleteLabelModal from "../DeleteLabelModal";
 
 function BoardDetail() {
   const dispatch = useDispatch();
@@ -108,7 +110,44 @@ function BoardDetail() {
                     .map((card) => (
                       <div key={card.id} className="single-card">
                         <div className="label-details">
-                        {labels.filter((label) => label.card_id === card.id).length == 0 ? labels.filter((label) => label.card_id === card.id).map((label) => (<p key={label.id}>{label.color}</p>))[0] : <button>create</button>}
+                        {labels.filter((label) => label.card_id === card.id).length > 0 ? labels.filter((label) => label.card_id === card.id).map((label) => (
+                        <div key={label.id}>
+                        <p>{label.color}</p>
+                        <OpenModalButton
+                        buttonText="Edit"
+                        //   onItemClick={closeMenu}
+                        buttonClassName="details-card-button"
+                        modalComponent={
+                          <UpdateLabelModal
+                            boardId={board.id}
+                          />
+                        }
+                        />
+                        <OpenModalButton
+                        buttonText="Delete"
+                        //   onItemClick={closeMenu}
+                        buttonClassName="details-card-button"
+                        modalComponent={
+                          <DeleteLabelModal
+                            labelId={label.id}
+                          />
+                        }
+                        />
+                        </div>
+                        ))[0]
+                        :
+                        <OpenModalButton
+                        buttonText="Create Label"
+                        //   onItemClick={closeMenu}
+                        buttonClassName="details-card-button"
+                        modalComponent={
+                          <CreateLabelModal
+                            boardId={board.id}
+                            cardId={card.id}
+                          />
+                        }
+                        />
+                        }
                         {/* <OpenModalButton
                           buttonText="Details"
                           //   onItemClick={closeMenu}

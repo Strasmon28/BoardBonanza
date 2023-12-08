@@ -4,7 +4,7 @@ import { useModal } from "../../context/Modal";
 import { createLabelThunk } from "../../store/labels";
 import "./CreateLabelModal.css"
 
-function CreateLabelModal({ boardId }) {
+function CreateLabelModal({ boardId, cardId }) {
   const dispatch = useDispatch();
 
   // const [user_id, setUser_id] = useState(0)
@@ -19,6 +19,8 @@ function CreateLabelModal({ boardId }) {
 
     const newErrors = {}
 
+    setComment("Placeholder")
+
     if (comment === ""){
       newErrors.comment = "A comment is required";
     }
@@ -32,12 +34,15 @@ function CreateLabelModal({ boardId }) {
       return;
     }
 
+    const board_id = boardId
+
     const labelData = {
       comment,
+      board_id,
       color
     };
 
-    dispatch(createLabelThunk(labelData, boardId));
+    dispatch(createLabelThunk(labelData, cardId));
     closeModal();
 
   };
@@ -73,7 +78,7 @@ function CreateLabelModal({ boardId }) {
         </div>
         </div>
 
-        <div className="label-form-comment-container">
+        {/* <div className="label-form-comment-container">
         <p>Comment</p>
         {errors && <p className="error-message">{errors.comment}</p>}
         <input
@@ -81,7 +86,7 @@ function CreateLabelModal({ boardId }) {
           value={comment}
           onChange={(e) => setComment(e.target.value)}
         />
-        </div>
+        </div> */}
         <button className="label-form-button" type="submit">Create</button>
       </form>
     </div>
