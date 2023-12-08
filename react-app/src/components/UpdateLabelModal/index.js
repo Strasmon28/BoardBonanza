@@ -8,7 +8,7 @@ function UpdateLabelModal({ boardId, labelId }) {
   const dispatch = useDispatch();
 
   // const [user_id, setUser_id] = useState(0)
-  const [comment, setComment] = useState("");
+  const [comment, setComment] = useState("Placeholder");
   const [color, setColor] = useState("");
   const [errors, setErrors] = useState({});
   const [selection, setSelection] = useState(0);
@@ -55,7 +55,7 @@ function UpdateLabelModal({ boardId, labelId }) {
   return (
     <div className="label-form-modal">
       <form className="label-form" onSubmit={handleSubmit}>
-      <h3 className="update-label-title">Update Label</h3>
+        <h3 className="update-label-title">Update Label</h3>
         <div className="label-form-color-container">
         <p>Color</p>
         {errors && <p className="error-message">{errors.selection}</p>}
