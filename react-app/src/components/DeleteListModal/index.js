@@ -22,7 +22,7 @@ function DeleteListModal({ listId }) {
     return (
         <div className="delete-list-modal">
             <h1>Do you want to delete this list?</h1>
-            <h2>This will also delete any cards within it</h2>
+            <h2 className="delete-list-subtitle">This will also delete any cards within it</h2>
             <div className="delete-list-buttons-container">
             <button className="delete-list-button" onClick={handleDelete}>Yes, confirm delete</button>
             <button className="delete-list-button" onClick={handleCancel}>No, cancel deletion</button>

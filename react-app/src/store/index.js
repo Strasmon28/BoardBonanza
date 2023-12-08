@@ -3,11 +3,15 @@ import thunk from 'redux-thunk';
 import session from './session'
 import boardsState from './boards'
 import listsState from './lists'
+import cardsState from './cards'
+import labelsState from './labels'
 
 const rootReducer = combineReducers({
   session,
   boardsState,
-  listsState
+  listsState,
+  cardsState,
+  labelsState
 });
 
 

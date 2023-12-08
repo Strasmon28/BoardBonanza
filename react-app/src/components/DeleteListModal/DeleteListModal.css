@@ -1,7 +1,14 @@
 .delete-list-modal {
     height: auto;
+    display: flex;
     font-family: Tahoma, sans-serif;
     padding: 15px;
+    flex-direction: column;
+}
+
+.delete-list-subtitle {
+    align-self: center;
+    margin-top: 0px;
 }
 
 .delete-list-buttons-container {
