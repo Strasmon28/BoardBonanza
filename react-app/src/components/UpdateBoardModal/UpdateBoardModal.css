@@ -48,6 +48,21 @@
     border-radius: 10px;
 }
 
+.purple-select {
+    background-color: purple;
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+}
+
+.purple-select.chosen {
+    background-color: purple;
+    border: 4px solid lightblue;
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+}
+
 .update-board-modal {
     width: 350px;
     /* height: 330px; */
