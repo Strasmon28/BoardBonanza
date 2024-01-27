@@ -71,6 +71,9 @@ function CreateBoardModal() {
           <div className={selection === 3 ? "grass-select chosen" : "grass-select"} onClick={() => selectTheme("grass", 3)}>
           </div>
 
+          <div className={selection === 3 ? "purple-select chosen" : "purple-select"} onClick={() => selectTheme("grass", 3)}>
+          </div>
+
         </div>
       </div>
 
