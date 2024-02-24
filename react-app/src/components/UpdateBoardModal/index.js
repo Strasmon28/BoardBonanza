@@ -67,7 +67,7 @@ function UpdateBoardModal({ board }) {
           <div className={selection === 3 ? "grass-select chosen" : "grass-select"} onClick={() => selectTheme("grass", 3)}>
           </div>
 
-          <div className={selection === 3 ? "purple-select chosen" : "purple-select"} onClick={() => selectTheme("grass", 3)}>
+          <div className={selection === 4 ? "purple-select chosen" : "purple-select"} onClick={() => selectTheme("purple", 4)}>
           </div>
 
         </div>

@@ -30,6 +30,12 @@
     height: 100vh;
 }
 
+.color-purple {
+    background: purple;
+    /* background: linear-gradient(#00cf00, lime, white); */
+    height: 100vh;
+}
+
 .orange {
     /* background-color: orange; */
     background: linear-gradient(#ff7300, yellow);
@@ -43,6 +49,11 @@
 .grass {
     /* background-color: green; */
     background: linear-gradient(#00cf00, lime, white);
+}
+
+.purple {
+    background: purple;
+    /* background purple */
 }
 
 .all-lists-container {
